@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-class ReadKey:
+class Keys:
 
     def __init__(self):
 
