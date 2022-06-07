@@ -14,3 +14,5 @@ class ReadKey:
             readings = pd.read_json(path_or_buf=self.filestr)
         except OSError as err:
             raise err
+
+        return readings
