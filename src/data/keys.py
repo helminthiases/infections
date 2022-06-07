@@ -11,7 +11,7 @@ class Keys:
     def exc(self):
 
         try:
-            readings = pd.read_json(path_or_buf=self.source)
+            readings = pd.read_json(path_or_buf=self.source, orient='records', dtype=True)
         except OSError as err:
             raise err
 
