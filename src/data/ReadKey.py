@@ -6,7 +6,7 @@ class ReadKey:
 
     def __init__(self):
 
-        self.filestr = os.path.join(os.getcwd(), '.key', 'keys.json')
+        self.filestr = os.path.join(os.getcwd(), 'keys', 'api.json')
 
     def exc(self):
 
