@@ -7,6 +7,9 @@ def main():
 
     logger.info('infections')
 
+    values = src.data.keys.Keys().exc()
+    logger.info(values)
+
 
 if __name__ == '__main__':
 
@@ -19,5 +22,8 @@ if __name__ == '__main__':
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
                         datefmt='%Y-%m-%d %H:%M:%S')
     logger = logging.getLogger(__name__)
+
+    # libraries
+    import src.data.keys
 
     main()
