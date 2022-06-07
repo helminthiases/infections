@@ -131,7 +131,6 @@ dmypy.json
 
 # Indepedent Development Environment
 .idea
-.ipynb_checkpoints
 
 # API
 .key
