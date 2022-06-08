@@ -133,6 +133,6 @@ dmypy.json
 .idea
 
 # API
-.key
+keys
 
 
