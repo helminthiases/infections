@@ -1,5 +1,6 @@
-import src.data.espen
 import pandas as pd
+
+import src.data.espen
 
 
 class Countries:
@@ -37,4 +38,3 @@ class Countries:
         frame = self.__structure(data=frame)
 
         return frame
-
