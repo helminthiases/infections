@@ -1,14 +1,19 @@
 import logging
 import os
 import sys
+import requests
+import pandas as pd
 
 
 def main():
 
     logger.info('infections')
 
-    values = src.data.keys.Keys().exc(host='who')
-    logger.info(values)
+    value = src.data.keys.Keys().exc(host='who')
+    logger.info(value)
+
+    frame = src.data.countries.Countries(key=value).exc()
+    logger.info(frame.head())
 
 
 if __name__ == '__main__':
@@ -25,5 +30,6 @@ if __name__ == '__main__':
 
     # libraries
     import src.data.keys
+    import src.data.countries
 
     main()
