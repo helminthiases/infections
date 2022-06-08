@@ -13,6 +13,9 @@ def main():
     frame = src.data.countries.Countries(key=value).exc()
     logger.info(frame.head())
 
+    frame = src.data.units.Units(key=value).exc()
+    logger.info(frame.head())
+
 
 if __name__ == '__main__':
 
@@ -29,5 +32,6 @@ if __name__ == '__main__':
     # libraries
     import src.data.keys
     import src.data.countries
+    import src.data.units
 
     main()
