@@ -1,3 +1,4 @@
+import requests
 
 
 class ESPEN:
@@ -10,9 +11,27 @@ class ESPEN:
         # API fields of interest
         self.fields = fields
 
-    def exc(self):
+    def __request(self, url: str):
+
+        try:
+            response = requests.get(url=url, timeout=18)
+            response.raise_for_status()
+        except requests.RequestException as err:
+            raise Exception(err)
+
+        if response.status_code != 200:
+            return None
+        else:
+            return response.json()
+
+    def exc(self, interests: list):
         """
         In progress
 
         :return:
         """
+
+        for interest in interests:
+
+            objects = self.__request(url=interest)
+            print(objects)
