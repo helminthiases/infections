@@ -7,7 +7,7 @@ def main():
 
     logger.info('infections')
 
-    values = src.data.keys.Keys().exc()
+    values = src.data.keys.Keys().exc(host='who')
     logger.info(values)
 
 
