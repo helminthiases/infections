@@ -11,7 +11,7 @@ class ESPEN:
     def request(self, params: dict) -> list:
 
         try:
-            response = requests.get(url=self.endpoint, params=params, timeout=18)
+            response = requests.get(url=self.endpoint, params=params, timeout=33)
             response.raise_for_status()
         except requests.RequestException as err:
             raise Exception(err)
