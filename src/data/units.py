@@ -12,15 +12,15 @@ class Units:
         """
 
         self.key = key
-        self.fields: dict = {'ADMIN0': 'admin0', 'ADMIN1': 'admin1', 'ADMIN1D': 'admin1_id', 'ADMIN2': 'admin2_id',
-                             'IUs_ADM': 'iu_adm', 'IUs_NAME': 'iu_name', 'IU_ID': 'iu_id', 'IU_CODE': 'iu_code'}
+        self.fields = ['admin0_id', 'admin1', 'admin1_id', 'admin2', 'admin2_id', 'iu_name', 'iu_id', 'iu_code']
 
     def __structure(self, data: pd.DataFrame):
 
-        units = data.copy().loc[:, list(self.fields.keys())].drop_duplicates()
-        units.rename(columns=self.fields, inplace=True)
+        units = data.copy().loc[:, self.fields].drop_duplicates()
+        conditions = units.loc[:, ['admin1_id', 'admin2_id', 'iu_id']].isna().any(axis='columns')
+        print(conditions)
 
-        return units
+        return units.loc[~conditions, :]
 
     def exc(self):
         """
