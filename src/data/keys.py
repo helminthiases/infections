@@ -1,18 +1,33 @@
-import pandas as pd
+import json
+
 import os
 
 
 class Keys:
 
     def __init__(self):
+        """
+        Constructor
+
+        The api.json file must be located within infections/keys, and the structure is
+
+            {"host name": "key", "host name": "key", ...}
+
+        """
 
         self.source = os.path.join(os.getcwd(), 'keys', 'api.json')
 
-    def exc(self):
+    def exc(self, host):
+        """
+
+        :param host: The API key of which host?
+        :return:
+        """
 
         try:
-            readings = pd.read_json(path_or_buf=self.source, orient='records', dtype=True)
+            with open(self.source, 'r') as disk:
+                literal = json.load(disk)
         except OSError as err:
             raise err
 
-        return readings
+        return literal[host]
