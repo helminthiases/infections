@@ -1,6 +1,6 @@
 
 
-class FieldExperiment:
+class ESPEN:
 
     def __init__(self, fields):
 
