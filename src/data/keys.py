@@ -17,7 +17,7 @@ class Keys:
 
         self.source = os.path.join(os.getcwd(), 'keys', 'api.json')
 
-    def exc(self, host):
+    def exc(self, host) -> str:
         """
 
         :param host: The API key of which host?
