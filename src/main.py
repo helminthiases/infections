@@ -15,6 +15,7 @@ def main():
 
     frame = src.data.units.Units(key=value).exc()
     logger.info(frame.head())
+    logger.info(frame.shape)
 
 
 if __name__ == '__main__':
