@@ -10,13 +10,8 @@ def main():
     value = src.data.keys.Keys().exc(host='who')
     logger.info(value)
 
-    frame = src.data.countries.Countries(key=value).exc()
-    logger.info(frame.head())
-
-    frame = src.data.units.Units(key=value).exc()
-    logger.info(frame.head())
-    logger.info(frame.shape)
-
+    src.data.countries.Countries(key=value).exc()
+    src.data.units.Units(key=value).exc()
     src.data.points.Points(key=value).exc(level='sitelevel',
                                           iso2_strings=['MW', 'BI', 'CM', 'CD'])
 
