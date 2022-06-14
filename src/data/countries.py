@@ -37,7 +37,7 @@ class Countries:
         """
 
         frame = data.copy().loc[:, self.fields].drop_duplicates()
-        countries = frame.groupby(self.group)[['year']].agg(lambda x: {', '.join(x.astype(str))})
+        countries = frame.groupby(self.group)[['year']].agg(lambda x: ', '.join(x.astype(str)))
         countries.reset_index(drop=False, inplace=True)
 
         return countries
