@@ -68,4 +68,4 @@ class Units:
                                 format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
                                 datefmt='%Y-%m-%d %H:%M:%S')
             logger = logging.getLogger(__name__)
-            logger.info('The countries gazetteer is available in {}'.format(self.storage))
+            logger.info('The units gazetteer is available in {}'.format(self.storage))
