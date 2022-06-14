@@ -17,7 +17,6 @@ def main():
     logger.info(frame.head())
     logger.info(frame.shape)
 
-    src.data.sites.Sites(key=value).exc()
     src.data.points.Points(key=value).exc(level='sitelevel',
                                           iso2_strings=['MW', 'BI', 'CM', 'CD'])
 
@@ -38,7 +37,6 @@ if __name__ == '__main__':
     import src.data.keys
     import src.data.countries
     import src.data.units
-    import src.data.sites
     import src.data.points
 
     main()
