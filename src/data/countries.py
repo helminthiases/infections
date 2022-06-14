@@ -1,4 +1,5 @@
 import os
+import logging
 
 import pandas as pd
 
@@ -48,9 +49,14 @@ class Countries:
         :return:
         """
 
-        data.to_csv(path_or_buf=os.path.join(self.storage, 'countries.csv'), index=False, header=True, encoding='utf-8')
+        try:
+            data.to_csv(path_or_buf=os.path.join(self.storage, 'countries.csv'),
+                        index=False, header=True, encoding='utf-8')
+            return True
+        except OSError as err:
+            raise Exception(err.strerror)
 
-    def exc(self) -> pd.DataFrame:
+    def exc(self):
         """
 
         :return:
@@ -58,8 +64,12 @@ class Countries:
 
         objects = src.data.espen.ESPEN(base='cartographies').request(
             params={'api_key': self.key, 'admin_level': 'admin0'})
-
         frame = pd.DataFrame.from_records(objects)
         frame = self.__structure(data=frame)
 
-        return frame
+        if self.__write(data=frame):
+            logging.basicConfig(level=logging.INFO,
+                                format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
+                                datefmt='%Y-%m-%d %H:%M:%S')
+            logger = logging.getLogger(__name__)
+            logger.info('The countries gazetteer is available in {}'.format(self.storage))
