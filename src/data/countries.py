@@ -25,6 +25,11 @@ class Countries:
 
         return countries
 
+    def __write(self, data: pd.DataFrame):
+
+        data.to_csv(path_or_buf='')
+
+
     def exc(self) -> pd.DataFrame:
         """
 
