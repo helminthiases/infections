@@ -1,32 +1,25 @@
-import src.data.espen
-
 import pandas as pd
 
 
 class Sites:
 
-    def __init__(self, key: str):
+    def __init__(self):
         """
 
-        :param key:
         """
 
-        self.key = key
-        self.fields = ['iso2', 'iso3', 'admin0_id', 'admin1_id', 'admin2_id', 'iu_id', 'iu_code']
+        self.fields = ['iso2', 'iso3', 'admin1_id', 'admin2_id', 'iu_id', 'location', 'site_id',
+                       'longitude', 'latitude', 'location_type']
 
-    @staticmethod
-    def __structure(data: pd.DataFrame):
+    def __structure(self, data: pd.DataFrame):
 
-        print(data.info())
+        sites = data.copy().loc[:, self.fields].drop_duplicates()
+        print(sites.info())
 
-    def exc(self):
+    def exc(self, frame: pd.DataFrame):
         """
 
         :return:
         """
 
-        objects = src.data.espen.ESPEN(base='cartographies').request(
-            params={'api_key': self.key})
-
-        frame = pd.DataFrame.from_records(objects)
         self.__structure(data=frame)
