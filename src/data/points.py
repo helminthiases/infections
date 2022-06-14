@@ -17,6 +17,10 @@ class Points:
     @staticmethod
     def __structure(data: pd.DataFrame):
 
+        points = data.copy()
+        points.rename(mapper=str.lower, axis='columns', inplace=True)
+        points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'}, inplace=True)
+
         print(data.head())
         print(data.info())
 
