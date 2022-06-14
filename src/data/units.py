@@ -12,13 +12,12 @@ class Units:
         """
 
         self.key = key
-        self.fields = ['admin0_id', 'admin1', 'admin1_id', 'admin2', 'admin2_id', 'iu_name', 'iu_id', 'iu_code']
+        self.fields = ['iso2', 'iso3', 'admin0_id', 'admin1', 'admin1_id', 'admin2', 'admin2_id', 'iu_name', 'iu_id', 'iu_code']
 
     def __structure(self, data: pd.DataFrame):
 
         units = data.copy().loc[:, self.fields].drop_duplicates()
         conditions = units.loc[:, ['admin1_id', 'admin2_id', 'iu_id']].isna().any(axis='columns')
-        print(conditions)
 
         return units.loc[~conditions, :]
 
