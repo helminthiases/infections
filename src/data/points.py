@@ -42,17 +42,17 @@ class Points:
 
         points = data.copy()
 
-        # Ensure that each field's name is lower-cased
-        points.rename(mapper=str.lower, axis='columns', inplace=True)
-
-        # Ensure field name consistency
-        points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
-                      inplace=True)
-
-        # Ensure data consistency
-        points = self.consistency.exc(data=points.loc[:, self.fields])
-
-        return points
+        if points.empty:
+            return points
+        else:
+            # Ensure that each field's name is lower-cased
+            # Ensure field name consistency
+            # Ensure data consistency
+            points.rename(mapper=str.lower, axis='columns', inplace=True)
+            points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
+                          inplace=True)
+            points = self.consistency.exc(data=points.loc[:, self.fields])
+            return points
 
     @dask.delayed
     def __read(self, iso2: str):
@@ -65,7 +65,11 @@ class Points:
         objects = self.interface.request(
             params={'api_key': self.parameter.api_key, 'disease': self.parameter.disease,
                     'level': self.parameter.level, 'iso2': iso2})
-        frame = pd.DataFrame.from_records(objects)
+
+        if len(objects) == 0:
+            frame = pd.DataFrame()
+        else:
+            frame = pd.DataFrame.from_records(objects)
 
         return frame
 
@@ -78,12 +82,15 @@ class Points:
         :return:
         """
 
-        try:
-            data.to_csv(path_or_buf=os.path.join(self.storage, '{}.csv'.format(name)),
-                        index=False, header=True, encoding='utf-8')
-            return '{}: succeeded'.format(name)
-        except OSError as err:
-            raise Exception(err.strerror)
+        if data.empty:
+            return '{}: empty'.format(name)
+        else:
+            try:
+                data.to_csv(path_or_buf=os.path.join(self.storage, '{}.csv'.format(name)),
+                            index=False, header=True, encoding='utf-8')
+                return '{}: succeeded'.format(name)
+            except OSError as err:
+                raise Exception(err.strerror)
 
     def exc(self, segments: list):
         """
