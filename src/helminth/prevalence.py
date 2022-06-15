@@ -20,7 +20,7 @@ class Prevalence:
         return positive/examined
 
     @staticmethod
-    def either(ascariasis: pd.Series, trichuriasis: pd.Series, hookworm: pd.Series):
+    def geohelminth(ascariasis: pd.Series, trichuriasis: pd.Series, hookworm: pd.Series):
         """
 
         :param ascariasis:
