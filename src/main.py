@@ -16,7 +16,9 @@ def main():
     Parameter = collections.namedtuple(typename='Parameter', field_names=['api_key', 'disease', 'level'])
     points = src.data.points.Points(parameter=Parameter._make((value, 'sth', 'sitelevel')),
                                     fields=fields.sites)
-    points.exc(segments=['MW', 'BI', 'CM', 'CD'])
+    messages = points.exc(segments=['MW', 'BI', 'CM', 'CD'])
+
+    logger.info(messages)
 
 
 if __name__ == '__main__':
