@@ -1,17 +1,22 @@
 import logging
 import os
 import sys
+import collections
 
 
 def main():
 
     logger.info('infections')
 
+    # API Key
     value = src.data.keys.Keys().exc(host='who')
     logger.info(value)
 
-    src.data.points.Points(key=value).exc(level='sitelevel',
-                                          iso2_strings=['MW', 'BI', 'CM', 'CD'])
+    # Get prevalence data per site of country
+    Parameter = collections.namedtuple(typename='Parameter', field_names=['api_key', 'disease', 'level'])
+    points = src.data.points.Points(parameter=Parameter._make((value, 'sth', 'sitelevel')),
+                                    fields=fields.sites)
+    points.exc(segments=['MW', 'BI', 'CM', 'CD'])
 
 
 if __name__ == '__main__':
@@ -27,9 +32,12 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # libraries
+    import config
     import src.data.keys
     import src.data.countries
     import src.data.units
     import src.data.points
+
+    fields = config.Config().fields()
 
     main()
