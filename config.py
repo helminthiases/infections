@@ -1,6 +1,16 @@
+import collections
+
+
 class Config:
 
     def __init__(self):
+        """
+
+        """
+
+    @staticmethod
+    def fields():
+
         sites = ['iso3', 'iso2', 'admin1_id', 'admin2_id', 'iu_id',
                  'location', 'site_id', 'longitude', 'latitude', 'georeliability', 'location_type',
                  'survey_type', 'year', 'age_start', 'age_end',
@@ -12,3 +22,7 @@ class Config:
 
         units = ['iso3', 'iso2', 'admin1_id', 'admin2_id', 'iu_id', 'iu_code', 'year',
                  'endemicity', 'endemicity_id', 'target_population', 'requiring', 'targeted', 'treated']
+
+        Fields = collections.namedtuple(typename='Fields', field_names=['sites', 'units'])
+
+        return Fields._make((sites, units))
