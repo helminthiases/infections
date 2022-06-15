@@ -62,6 +62,7 @@ class Points:
 
         return frame
 
+    @dask.delayed
     def __write(self, data: pd.DataFrame, name: str):
         """
 
