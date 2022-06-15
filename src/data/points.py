@@ -6,6 +6,7 @@ import pandas as pd
 
 import src.data.espen
 import src.functions.directories
+import src.helminth.consistency
 
 
 class Points:
@@ -28,6 +29,9 @@ class Points:
         # An ESPEN interface instance
         self.interface = src.data.espen.ESPEN(base='data')
 
+        # Consistency
+        self.consistency = src.helminth.consistency.Consistency(level=self.parameter.level)
+
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
         """
@@ -45,7 +49,10 @@ class Points:
         points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
                       inplace=True)
 
-        return points.loc[:, self.fields]
+        # Ensure data consistency
+        points = self.consistency.exc(data=points.loc[:, self.fields])
+
+        return points
 
     @dask.delayed
     def __read(self, iso2: str):
