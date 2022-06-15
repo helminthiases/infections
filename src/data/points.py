@@ -6,7 +6,7 @@ import pandas as pd
 
 import src.data.espen
 import src.functions.directories
-import src.helminth.consistency
+import src.data.consistency
 
 
 class Points:
@@ -30,7 +30,7 @@ class Points:
         self.interface = src.data.espen.ESPEN(base='data')
 
         # Consistency
-        self.consistency = src.helminth.consistency.Consistency(level=self.parameter.level)
+        self.consistency = src.data.consistency.Consistency(level=self.parameter.level)
 
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
