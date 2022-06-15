@@ -24,7 +24,7 @@ class Consistency:
         frame.loc[:, 'iso3'] = frame['iso3'].str.upper()
         frame.loc[:, 'iso2'] = frame['iso2'].str.upper()
 
-        frame.loc[:, 'location'] = frame.location.str.lower().str.replace('_', ' ').str.strip()
+        frame.loc[:, 'location'] = frame.location.str.lower().str.replace('_', ' ').str.replace('-', ' ').str.strip()
         frame.loc[:, 'location_type'] = frame['location_type'].str.lower().str.strip()
         frame.loc[:, 'survey_type'] = frame['survey_type'].str.lower().str.strip()
 
