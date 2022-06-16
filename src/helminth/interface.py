@@ -28,7 +28,7 @@ def main():
     Parameter = collections.namedtuple(typename='Parameter', field_names=['api_key', 'disease', 'level'])
     points = src.helminth.points.Points(parameter=Parameter._make((value, 'sth', 'sitelevel')),
                                         fields=fields.sites)
-    messages = points.exc(segments=['YE', 'NA'])
+    messages = points.exc(segments=segments)
     logger.info(messages)
 
 
