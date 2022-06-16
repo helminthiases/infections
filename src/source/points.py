@@ -1,12 +1,11 @@
-import collections
 import os
 
 import dask
 import pandas as pd
 
-import src.helminth.espen
+import src.source.espen
 import src.functions.directories
-import src.helminth.consistency
+import src.source.consistency
 
 
 class Points:
@@ -25,10 +24,10 @@ class Points:
         src.functions.directories.Directories().create(self.storage)
 
         # An ESPEN interface instance
-        self.interface = src.helminth.espen.ESPEN(base='data')
+        self.interface = src.source.espen.ESPEN(base='data')
 
         # Consistency
-        self.consistency = src.helminth.consistency.Consistency(level=level)
+        self.consistency = src.source.consistency.Consistency(level=level)
 
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
