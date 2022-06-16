@@ -7,8 +7,6 @@ import pandas as pd
 
 def main():
 
-    logger.info('infections')
-
     # API Key
     value = src.source.keys.Keys().exc(host='who')
     logger.info(value)
