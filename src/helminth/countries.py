@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 
-import src.helminth.espen
+import src.source.espen
 import src.functions.directories
 
 
@@ -62,7 +62,7 @@ class Countries:
         :return:
         """
 
-        objects = src.helminth.espen.ESPEN(base='cartographies').request(
+        objects = src.source.espen.ESPEN(base='cartographies').request(
             params={'api_key': self.key, 'admin_level': 'admin0'})
         frame = pd.DataFrame.from_records(objects)
         frame = self.__structure(data=frame)
