@@ -11,26 +11,24 @@ import src.helminth.consistency
 
 class Points:
 
-    def __init__(self, parameter: collections.namedtuple('Parameter', ['api_key', 'disease', 'level']),
-                 fields: list):
+    def __init__(self, level: str, fields: list):
         """
 
-        :param parameter:
+        :param level: WHO experiment level - site or implementation unit
         :param fields: The list of fields of interest
         """
 
-        self.parameter = parameter
         self.fields = fields
 
         # The storage area of the countries file
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', parameter.level)
+        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', level)
         src.functions.directories.Directories().create(self.storage)
 
         # An ESPEN interface instance
         self.interface = src.helminth.espen.ESPEN(base='data')
 
         # Consistency
-        self.consistency = src.helminth.consistency.Consistency(level=self.parameter.level)
+        self.consistency = src.helminth.consistency.Consistency(level=level)
 
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
@@ -55,16 +53,14 @@ class Points:
             return points
 
     @dask.delayed
-    def __read(self, iso2: str):
+    def __read(self, params: dict):
         """
 
-        :param iso2:
+        :param params:
         :return:
         """
 
-        objects = self.interface.request(
-            params={'api_key': self.parameter.api_key, 'disease': self.parameter.disease,
-                    'level': self.parameter.level, 'iso2': iso2})
+        objects = self.interface.request(params=params)
 
         if len(objects) == 0:
             frame = pd.DataFrame()
@@ -92,19 +88,19 @@ class Points:
             except OSError as err:
                 raise Exception(err.strerror)
 
-    def exc(self, segments: list):
+    def exc(self, parameters: list):
         """
 
-        :param segments:
+        :param parameters:
         :return:
         """
 
         computations = []
-        for iso2 in segments:
+        for params in parameters:
 
-            frame = self.__read(iso2=iso2)
+            frame = self.__read(params=params)
             frame = self.__structure(data=frame)
-            message = self.__write(data=frame, name=iso2)
+            message = self.__write(data=frame, name=params['iso2'])
 
             computations.append(message)
 
