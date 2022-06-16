@@ -1,4 +1,3 @@
-import collections
 import logging
 import os
 import sys
@@ -11,7 +10,7 @@ def main():
     logger.info('infections')
 
     # API Key
-    value = src.helminth.keys.Keys().exc(host='who')
+    value = src.source.keys.Keys().exc(host='who')
     logger.info(value)
 
     # Country codes
@@ -25,7 +24,7 @@ def main():
 
     # Get prevalence data per site of country
     parameters = [{'api_key': value, 'disease': 'sth', 'level': 'sitelevel', 'iso2': iso2} for iso2 in codes]
-    points = src.helminth.points.Points(level='sitelevel', fields=fields.sites)
+    points = src.source.points.Points(level='sitelevel', fields=fields.sites)
     messages = points.exc(parameters=parameters)
     logger.info(messages)
 
@@ -44,10 +43,10 @@ if __name__ == '__main__':
 
     # libraries
     import config
-    import src.helminth.keys
+    import src.source.keys
     import src.helminth.countries
     import src.helminth.units
-    import src.helminth.points
+    import src.source.points
 
     fields = config.Config().fields()
 
