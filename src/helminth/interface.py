@@ -20,15 +20,13 @@ def main():
                             header=0, usecols=['iso2'], dtype={'iso2': str}, encoding='utf8')
     except OSError as err:
         raise Exception(err.strerror)
-
-    segments = frame['iso2'].to_list()
-    segments = [segment for segment in segments if not pd.isnull(segment)]
+    codes = frame['iso2'].to_list()
+    codes = [code for code in codes if not pd.isnull(code)]
 
     # Get prevalence data per site of country
-    Parameter = collections.namedtuple(typename='Parameter', field_names=['api_key', 'disease', 'level'])
-    points = src.helminth.points.Points(parameter=Parameter._make((value, 'sth', 'sitelevel')),
-                                        fields=fields.sites)
-    messages = points.exc(segments=segments)
+    parameters = [{'api_key': value, 'disease': 'sth', 'level': 'sitelevel', 'iso2': iso2} for iso2 in codes]
+    points = src.helminth.points.Points(level='sitelevel', fields=fields.sites)
+    messages = points.exc(parameters=parameters)
     logger.info(messages)
 
 
