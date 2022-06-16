@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 
-import src.data.espen
+import src.helminth.espen
 import src.functions.directories
 
 
@@ -58,7 +58,7 @@ class Units:
         :return:
         """
 
-        objects = src.data.espen.ESPEN(base='cartographies').request(
+        objects = src.helminth.espen.ESPEN(base='cartographies').request(
             params={'api_key': self.key})
         frame = pd.DataFrame.from_records(objects)
         frame = self.__structure(data=frame)
