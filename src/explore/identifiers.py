@@ -12,11 +12,15 @@ class Identifiers:
 
         """
 
-        path = os.path.join(os.getcwd(), 'warehouse', 'data', 'sitelevel')
-        self.items = glob.glob(pathname=os.path.join(path, '*.csv'))
+        # Data Source
+        source = os.path.join(os.getcwd(), 'warehouse', 'data', 'sitelevel')
+        self.items = glob.glob(pathname=os.path.join(source, '*.csv'))
+
+        # Storage
+        self.storage = os.path.join(os.getcwd(), 'warehouse', 'explore')
 
     @dask.delayed
-    def __read(self, item: str):
+    def __read(self, item: str) -> pd.DataFrame:
 
         observations = pd.read_csv(filepath_or_buffer=item, header=0, encoding='utf-8',
                                    usecols=['iso3', 'iso2', 'site_id'])
@@ -29,7 +33,17 @@ class Identifiers:
 
         return frame
 
-    def exc(self):
+    def __write(self, data: pd.DataFrame) -> str:
+
+        name = os.path.join(self.storage, 'identifiers.csv')
+
+        try:
+            data.to_csv(path_or_buf=name, index=False, header=True, encoding='utf-8')
+            return 'A summary of the availability of site identifiers: {}'.format(name.replace(os.getcwd(), ''))
+        except OSError as err:
+            raise Exception(err.strerror)
+
+    def exc(self) -> str:
 
         computations = []
         for item in self.items:
@@ -41,4 +55,4 @@ class Identifiers:
         calculations = dask.compute(computations, scheduler='processes')[0]
         calculations = pd.concat(calculations, axis=0, ignore_index=True)
 
-        return calculations
+        return self.__write(data=calculations)
