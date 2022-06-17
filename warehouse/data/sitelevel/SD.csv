@@ -1,2 +1,2 @@
-iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,sth_examined,sth_positive,quality,sn
-SDN,SD,,,,el dhayga,,,,99,,,2008,,,157.0,12.0,,,157.0,48,,,157.0,10.0,,,0,0,1,28830
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
+SDN,SD,,,,el dhayga,,,,99,,,2008,,,157.0,12.0,,,157.0,48,,,157.0,10.0,,,1,28830
