@@ -1,19 +1,19 @@
-iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,sth_examined,sth_positive,quality,sn
-EGY,EG,,,,2 schools,,,,99,,,,6,12,0.0,0.0,,,486.0,44,,,0.0,0.0,,,0,0,3,30076
-EGY,EG,,,,2 schools,,,,99,,,,14,20,377.0,23.0,,,377.0,8,,,0.0,0.0,,,0,0,3,30077
-EGY,EG,,,,2 schools,,,,99,,,,9,12,414.0,22.0,,,414.0,4,,,0.0,0.0,,,0,0,3,30078
-EGY,EG,,,3603.0,el shimbab,,31.25,,99,,,,6,12,400.0,2.0,,,400.0,22,,,400.0,0.0,,,0,0,3,31299
-EGY,EG,,,,gogar,,,,99,,,2005.0,20,40,1000.0,1.0,,,1000.0,1,,,1000.0,1.0,,,0,0,2,30079
-EGY,EG,,,,helwan,,,,99,,,,6,12,113.0,9.0,,,113.0,3,,,113.0,0.0,,,0,0,3,29656
-EGY,EG,,,,kafr,,,,99,,,,6,12,190.0,0.0,,,190.0,60,,,190.0,0.0,,,0,0,3,31297
-EGY,EG,,,,kafr el adlia,,,,99,,,,6,12,102.0,0.0,,,102.0,6,,,102.0,0.0,,,0,0,3,29228
-EGY,EG,,,,kafr el ashry,,,,99,,,,6,12,400.0,26.0,,,400.0,49,,,400.0,0.0,,,0,0,3,31298
-EGY,EG,,,3599.0,kafr el salahat,,31.623333,,99,,,,6,12,204.0,7.0,,,204.0,53,,,204.0,0.0,,,0,0,3,29277
-EGY,EG,,,,kafr hegazy,,,,99,,,,6,12,100.0,3.0,,,100.0,15,,,100.0,1.0,,,0,0,3,31301
-EGY,EG,,,,location in behera governorate,,,,99,,,1996.0,0,12,1783.0,0.0,,,1783.0,123,,,1783.0,58.0,,,0,0,3,31304
-EGY,EG,,,3599.0,mansoura,,31.380556,,99,,,2005.0,20,40,1000.0,0.0,,,1000.0,1,,,1000.0,0.0,,,0,0,2,30080
-EGY,EG,,,3607.0,marsafa and kafr atallah,,31.2475,,99,,,,5,55,0.0,0.0,,,230.0,5,,,230.0,1.0,,,0,0,3,31303
-EGY,EG,,,3599.0,mataria,,32.030833,,99,,,,6,12,387.0,0.0,,,387.0,74,,,387.0,4.0,,,0,0,3,29152
-EGY,EG,,,3600.0,sennores primary school (senouris),,30.826111,,99,,,,6,12,252.0,11.0,,,252.0,30,,,0.0,0.0,,,0,0,3,30075
-EGY,EG,,,3607.0,sindbis,,31.164722,,99,,,,6,12,519.0,1.0,,,519.0,36,,,519.0,0.0,,,0,0,3,29229
-EGY,EG,,,3601.0,sobtas (sebtas),,31.053575,,99,,,,6,12,530.0,0.0,,,530.0,46,,,530.0,0.0,,,0,0,3,31302
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
+EGY,EG,,,,2 schools,,,,99,,,,6,12,0.0,0.0,,,486.0,44,,,0.0,0.0,,,3,30076
+EGY,EG,,,,2 schools,,,,99,,,,14,20,377.0,23.0,,,377.0,8,,,0.0,0.0,,,3,30077
+EGY,EG,,,,2 schools,,,,99,,,,9,12,414.0,22.0,,,414.0,4,,,0.0,0.0,,,3,30078
+EGY,EG,,,3603.0,el shimbab,,31.25,,99,,,,6,12,400.0,2.0,,,400.0,22,,,400.0,0.0,,,3,31299
+EGY,EG,,,,gogar,,,,99,,,2005.0,20,40,1000.0,1.0,,,1000.0,1,,,1000.0,1.0,,,2,30079
+EGY,EG,,,,helwan,,,,99,,,,6,12,113.0,9.0,,,113.0,3,,,113.0,0.0,,,3,29656
+EGY,EG,,,,kafr,,,,99,,,,6,12,190.0,0.0,,,190.0,60,,,190.0,0.0,,,3,31297
+EGY,EG,,,,kafr el adlia,,,,99,,,,6,12,102.0,0.0,,,102.0,6,,,102.0,0.0,,,3,29228
+EGY,EG,,,,kafr el ashry,,,,99,,,,6,12,400.0,26.0,,,400.0,49,,,400.0,0.0,,,3,31298
+EGY,EG,,,3599.0,kafr el salahat,,31.623333,,99,,,,6,12,204.0,7.0,,,204.0,53,,,204.0,0.0,,,3,29277
+EGY,EG,,,,kafr hegazy,,,,99,,,,6,12,100.0,3.0,,,100.0,15,,,100.0,1.0,,,3,31301
+EGY,EG,,,,location in behera governorate,,,,99,,,1996.0,0,12,1783.0,0.0,,,1783.0,123,,,1783.0,58.0,,,3,31304
+EGY,EG,,,3599.0,mansoura,,31.380556,,99,,,2005.0,20,40,1000.0,0.0,,,1000.0,1,,,1000.0,0.0,,,2,30080
+EGY,EG,,,3607.0,marsafa and kafr atallah,,31.2475,,99,,,,5,55,0.0,0.0,,,230.0,5,,,230.0,1.0,,,3,31303
+EGY,EG,,,3599.0,mataria,,32.030833,,99,,,,6,12,387.0,0.0,,,387.0,74,,,387.0,4.0,,,3,29152
+EGY,EG,,,3600.0,sennores primary school (senouris),,30.826111,,99,,,,6,12,252.0,11.0,,,252.0,30,,,0.0,0.0,,,3,30075
+EGY,EG,,,3607.0,sindbis,,31.164722,,99,,,,6,12,519.0,1.0,,,519.0,36,,,519.0,0.0,,,3,29229
+EGY,EG,,,3601.0,sobtas (sebtas),,31.053575,,99,,,,6,12,530.0,0.0,,,530.0,46,,,530.0,0.0,,,3,31302
