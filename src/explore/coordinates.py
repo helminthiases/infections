@@ -1,8 +1,10 @@
 import glob
 import logging
 import os
+import pathlib
 
 import geopandas as gpd
+import numpy as np
 import pandas as pd
 
 
@@ -15,16 +17,22 @@ def main():
     items = glob.glob(pathname=os.path.join(path, '*.csv'))
 
     # Exploring coordinate settings
-    for item in items:
+    for item in items[:2]:
+
+        logger.info(pathlib.Path(item).stem)
+
         observations = pd.read_csv(filepath_or_buffer=item, header=0, encoding='utf-8')
+
         frame = gpd.GeoDataFrame(observations,
                                  geometry=gpd.points_from_xy(x=observations.longitude, y=observations.latitude))
         frame.set_crs(crs='EPSG:4326', inplace=True)
         frame.to_crs(crs='EPSG:3857', inplace=True)
         logger.info(frame.crs)
-        logger.info(frame.info())
 
+        sample = frame.geometry.apply(lambda x: frame.distance(x)).values
+        np.fill_diagonal(sample.values, -1.0)
 
+        
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO,
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d', datefmt='%Y-%m-%d %H:%M:%S')
