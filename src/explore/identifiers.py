@@ -32,6 +32,7 @@ class Identifiers:
 
         frame = observations[['iso3', 'iso2']].drop_duplicates()
         frame.loc[:, 'available'] = available
+        frame.loc[:, 'observations'] = observations.shape[0]
         frame.loc[:, 'fraction'] = fraction
 
         return frame
