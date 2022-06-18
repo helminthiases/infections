@@ -7,9 +7,9 @@ def main():
 
     logger.info('explore')
 
-    calculations = src.explore.identifiers.Identifiers().exc()
+    messages = src.explore.identifiers.Identifiers().exc()
 
-    logger.info(calculations)
+    logger.info(messages)
 
 
 if __name__ == '__main__':
