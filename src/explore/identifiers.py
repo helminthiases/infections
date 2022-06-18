@@ -27,13 +27,11 @@ class Identifiers:
 
         observations = pd.read_csv(filepath_or_buffer=item, header=0, encoding='utf-8',
                                    usecols=['iso3', 'iso2', 'site_id'])
-        available = sum(observations['site_id'].notna())
-        fraction = available / observations.shape[0]
-
+        
         frame = observations[['iso3', 'iso2']].drop_duplicates()
-        frame.loc[:, 'available'] = available
-        frame.loc[:, 'observations'] = observations.shape[0]
-        frame.loc[:, 'fraction'] = fraction
+        frame.loc[:, 'n_observations'] = observations.shape[0]
+        frame.loc[:, 'n_site_identifiers'] = sum(observations['site_id'].notna())
+        frame.loc[:, 'fraction'] = frame['n_site_identifiers']/frame['n_observations']
 
         return frame
 
