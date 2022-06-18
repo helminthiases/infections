@@ -4,6 +4,8 @@ import dask
 
 import pandas as pd
 
+import src.functions.directories
+
 
 class Identifiers:
 
@@ -18,6 +20,7 @@ class Identifiers:
 
         # Storage
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'explore')
+        src.functions.directories.Directories().create(path=self.storage)
 
     @dask.delayed
     def __read(self, item: str) -> pd.DataFrame:
