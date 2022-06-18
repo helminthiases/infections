@@ -43,6 +43,9 @@ def main():
         values = reference + sample
         logger.info(values)
 
+        query = np.where(values > -1)
+        logger.info(query)
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO,
