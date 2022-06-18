@@ -8,6 +8,10 @@ import src.functions.directories
 
 
 class Identifiers:
+    """
+    Per site level data file, this class checks the proportion of records that
+    have a site level identification code
+    """
 
     def __init__(self):
         """
@@ -42,6 +46,11 @@ class Identifiers:
         return frame
 
     def __write(self, data: pd.DataFrame) -> str:
+        """
+
+        :param data: The data frame whose contents are being stored
+        :return:
+        """
 
         name = os.path.join(self.storage, 'identifiers.csv')
 
