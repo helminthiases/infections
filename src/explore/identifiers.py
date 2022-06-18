@@ -1,7 +1,7 @@
 import glob
 import os
-import dask
 
+import dask
 import pandas as pd
 
 import src.functions.directories
@@ -41,7 +41,7 @@ class Identifiers:
         frame = observations[['iso3', 'iso2']].drop_duplicates()
         frame.loc[:, 'n_observations'] = observations.shape[0]
         frame.loc[:, 'n_site_identifiers'] = sum(observations['site_id'].notna())
-        frame.loc[:, 'fraction'] = frame['n_site_identifiers']/frame['n_observations']
+        frame.loc[:, 'fraction'] = frame['n_site_identifiers'] / frame['n_observations']
 
         return frame
 
@@ -68,7 +68,6 @@ class Identifiers:
 
         computations = []
         for item in self.items:
-
             frame = self.__inspect(item=item)
             computations.append(frame)
 
