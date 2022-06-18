@@ -44,7 +44,9 @@ def main():
         logger.info(values)
 
         query = np.where(values > -1, True, False)
+        option =  values[query].argmin(axis=0)
         logger.info(query)
+        logger.info(option)
 
 
 if __name__ == '__main__':
