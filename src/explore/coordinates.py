@@ -29,10 +29,21 @@ def main():
         frame.to_crs(crs='EPSG:3857', inplace=True)
         logger.info(frame.crs)
 
+        # distances
         sample = frame.geometry.apply(lambda x: frame.distance(x)).values
-        np.fill_diagonal(sample.values, -1.0)
+        sample = np.triu(m=sample, k=1)
+        logger.info(sample)
 
-        
+        # reference
+        reference = -1*np.ones_like(a=sample)
+        reference = np.tril(m=reference, k=0)
+        logger.info(reference)
+
+        # distances within upper triangular area only
+        values = reference + sample
+        logger.info(values)
+
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO,
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d', datefmt='%Y-%m-%d %H:%M:%S')
