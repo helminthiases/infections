@@ -43,7 +43,7 @@ def main():
         values = reference + sample
         logger.info(values)
 
-        query = np.where(values > -1)
+        query = np.where(values > -1, True, False)
         logger.info(query)
 
 
