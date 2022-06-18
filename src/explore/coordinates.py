@@ -7,20 +7,21 @@ import pandas as pd
 
 
 def main():
+
+    # The storage area of the site level data
     path = os.path.join(os.getcwd(), 'warehouse', 'data', 'sitelevel')
 
+    # The list of files therein
     items = glob.glob(pathname=os.path.join(path, '*.csv'))
 
-    for item in items[:1]:
-
+    # Exploring coordinate settings
+    for item in items:
         observations = pd.read_csv(filepath_or_buffer=item, header=0, encoding='utf-8')
         frame = gpd.GeoDataFrame(observations,
                                  geometry=gpd.points_from_xy(x=observations.longitude, y=observations.latitude))
         frame.set_crs(crs='EPSG:4326', inplace=True)
-        logger.info(frame.crs)
         frame.to_crs(crs='EPSG:3857', inplace=True)
         logger.info(frame.crs)
-        logger.info(frame.head().transpose())
         logger.info(frame.info())
 
 
