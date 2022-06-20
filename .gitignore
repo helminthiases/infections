@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Indepedent Development Environment
+.idea
+
+# API
+keys
+
+

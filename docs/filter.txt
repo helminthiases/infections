@@ -1,0 +1,12 @@
+tensorflow
+pandas
+seaborn
+pytest
+coverage
+pytest-cov
+pylint
+flake8
+jupyterlab
+numpy
+matplotlib
+scipy

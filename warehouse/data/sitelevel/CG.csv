@@ -1,0 +1,2 @@
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
+COG,CG,,,23545,brazzaville,,15.295,-4.27,4,,,1982,2,14,110.0,28.0,,,0.0,0,,,0.0,0.0,,,3,30074
