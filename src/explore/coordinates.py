@@ -32,19 +32,17 @@ def main():
         # distances
         sample = frame.geometry.apply(lambda x: frame.distance(x)).values
         sample = np.triu(m=sample, k=1)
-        logger.info(sample)
 
         # reference
         reference = -1*np.ones_like(a=sample)
         reference = np.tril(m=reference, k=0)
-        logger.info(reference)
 
         # distances within upper triangular area only
         values = reference + sample
         logger.info(values)
 
         query = np.where(values > -1, True, False)
-        option =  values[query].argmin(axis=0)
+        option = values[query].argmin(axis=0)
         logger.info(query)
         logger.info(option)
 
