@@ -1,7 +1,13 @@
+"""
+Module: prevalence
+"""
 import pandas as pd
 
 
 class Prevalence:
+    """
+    Prevalence calculator
+    """
 
     def __init__(self):
         """
