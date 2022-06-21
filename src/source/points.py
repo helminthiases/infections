@@ -1,3 +1,6 @@
+"""
+Module: points
+"""
 import os
 
 import dask
@@ -9,6 +12,9 @@ import src.source.consistency
 
 
 class Points:
+    """
+    Reads data from the ESPEN data repository
+    """
 
     def __init__(self, level: str, fields: list):
         """
