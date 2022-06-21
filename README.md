@@ -19,12 +19,15 @@ In order to use Jupyter Lab 3.4.2 disable ``nbclassic``
   jupyter server extension disable nbclassic
 ````
 
-For ``pylint``
+<br>
+
+To generate the ``pylint`` inspector run
 
 ````shell
 pylint --generate-rcfile > .pylintrc
 ````
 
+There's more about ``pylint`` [online](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html)
 
 
 <br>
