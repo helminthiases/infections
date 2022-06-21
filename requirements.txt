@@ -2,7 +2,7 @@ tensorflow==2.9.1
 dask[complete]==2021.10.0
 pandas==1.1.3
 seaborn==0.11.0
-pytest==0.0.0
+pytest==6.1.1
 coverage==5.3
 pytest-cov==2.10.1
 pylint==2.6.0
