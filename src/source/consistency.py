@@ -25,7 +25,7 @@ class Consistency:
         :param data:
         :return:
         """
-        
+
         frame = data.copy()
 
         frame.loc[:, 'iso3'] = frame['iso3'].str.upper()
