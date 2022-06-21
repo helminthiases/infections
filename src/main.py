@@ -1,9 +1,18 @@
+"""
+The main module for running other classes
+"""
 import logging
 import os
 import sys
 
 
 def main():
+    """
+    Entry point
+
+    :return: None
+    """
+
     logger.info('infections')
 
 
