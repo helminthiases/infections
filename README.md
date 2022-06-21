@@ -19,6 +19,14 @@ In order to use Jupyter Lab 3.4.2 disable ``nbclassic``
   jupyter server extension disable nbclassic
 ````
 
+For ``pylint``
+
+````shell
+pylint --generate-rcfile > .pylintrc
+````
+
+
+
 <br>
 <br>
 
