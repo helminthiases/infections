@@ -1,3 +1,6 @@
+"""
+Module: countries
+"""
 import logging
 import os
 
@@ -8,6 +11,9 @@ import src.functions.directories
 
 
 class Countries:
+    """
+    Creates a countries gazetteer
+    """
 
     def __init__(self, key: str):
         """
