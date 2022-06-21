@@ -1,9 +1,15 @@
+"""
+Module: keys
+"""
 import json
 
 import os
 
 
 class Keys:
+    """
+    Reads the API key from a source.
+    """
 
     def __init__(self):
         """
