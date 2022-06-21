@@ -60,7 +60,7 @@ class Countries:
                         index=False, header=True, encoding='utf-8')
             return True
         except OSError as err:
-            raise Exception(err.strerror)
+            raise Exception(err.strerror) from err
 
     def exc(self):
         """
