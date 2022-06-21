@@ -29,9 +29,9 @@ class ESPEN:
             response = requests.get(url=self.endpoint, params=params, timeout=33)
             response.raise_for_status()
         except requests.RequestException as err:
-            raise Exception(err)
+            raise Exception(err) from err
 
         if response.status_code != 200:
             return list()
-        else:
-            return response.json()
+
+        return response.json()
