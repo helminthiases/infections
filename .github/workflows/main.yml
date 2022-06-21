@@ -17,26 +17,44 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Lint with flake8
         run: |
           pip install flake8
           printf "\n"
           echo "============================= flake8 session starts =============================="
+
           # stop the build if there are Python syntax errors or undefined names
           printf "\n"
           echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
           formulae symbols (F63), undefined variable names (F82):"
-          echo "src/data"
-          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/data
+
+          echo "src/source"
+          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/source
+
+          echo "src/helminth"
+          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/helminth
+
+          echo "src/functions"
+          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/functions
+
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           printf "\n"
           echo "Complexity issues:"
-          echo "src/data"
-          flake8 --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics src/data
+
+          echo "src/source"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/source
+
+          echo "src/helminth"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/helminth
+
+          echo "src/functions"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/functions
 
       - name: Lint with pylint
         run: |
