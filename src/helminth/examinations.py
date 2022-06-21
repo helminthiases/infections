@@ -1,3 +1,6 @@
+"""
+Module: examinations
+"""
 import logging
 import os
 import sys
@@ -6,6 +9,11 @@ import pandas as pd
 
 
 def main():
+    """
+    Reads ESPEN STH examinations data via the ESPEN API
+
+    :return:
+    """
 
     # API Key
     value = src.source.keys.Keys().exc(host='who')
@@ -16,7 +24,7 @@ def main():
         frame = pd.read_csv(filepath_or_buffer=os.path.join(os.getcwd(), 'warehouse', 'gazetteer', 'countries.csv'),
                             header=0, usecols=['iso2'], dtype={'iso2': str}, encoding='utf8')
     except OSError as err:
-        raise Exception(err.strerror)
+        raise Exception(err.strerror) from err
     codes = frame['iso2'].to_list()
     codes = [code for code in codes if not pd.isnull(code)]
 
