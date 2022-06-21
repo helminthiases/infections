@@ -47,15 +47,16 @@ class Points:
 
         if points.empty:
             return points
-        else:
-            # Ensure that each field's name is lower-cased
-            # Ensure field name consistency
-            # Ensure data consistency
-            points.rename(mapper=str.lower, axis='columns', inplace=True)
-            points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
-                          inplace=True)
-            points = self.consistency.exc(data=points.loc[:, self.fields])
-            return points
+
+        # Ensure that each field's name is lower-cased
+        # Ensure field name consistency
+        # Ensure data consistency
+        points.rename(mapper=str.lower, axis='columns', inplace=True)
+        points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
+                      inplace=True)
+        points = self.consistency.exc(data=points.loc[:, self.fields])
+
+        return points
 
     @dask.delayed
     def __read(self, params: dict):
@@ -85,13 +86,13 @@ class Points:
 
         if data.empty:
             return '{}: empty'.format(name)
-        else:
-            try:
-                data.to_csv(path_or_buf=os.path.join(self.storage, '{}.csv'.format(name)),
-                            index=False, header=True, encoding='utf-8')
-                return '{}: succeeded'.format(name)
-            except OSError as err:
-                raise Exception(err.strerror)
+
+        try:
+            data.to_csv(path_or_buf=os.path.join(self.storage, '{}.csv'.format(name)),
+                        index=False, header=True, encoding='utf-8')
+            return '{}: succeeded'.format(name)
+        except OSError as err:
+            raise Exception(err.strerror) from err
 
     def exc(self, parameters: list):
         """
