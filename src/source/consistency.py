@@ -1,12 +1,19 @@
+"""
+Module: consistency
+"""
 import pandas as pd
 
 
 class Consistency:
+    """
+    Ensures the consistency of a field's data; for the ESPEN data repository
+
+    """
 
     def __init__(self, level: str):
         """
 
-        :param level:
+        :param level: The ESPEN project data levels, e.g., sitelevel (site level), iu (implementation unit)
         """
 
         self.level = level
