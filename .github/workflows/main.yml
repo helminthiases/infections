@@ -74,12 +74,9 @@ jobs:
           printf "\n Package src/functions"
           pylint --rcfile .pylintrc src/functions
 
-
-
       - name: Test with pytest
         run: |
           pip install pytest
-          pytest -o python_files=test_*.py
 
       - name: Coverage with pytest-cov
         run: |
