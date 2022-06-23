@@ -1,17 +1,25 @@
 <br>
 
-Soil Transmitted Helminth (STH): Models and patterns of prevalence &amp; transmission
+The Soil Transmitted Helminths Project
 
 <br>
 
 ### Notes
 
-The countries 'DJ', 'DZ', 'GQ', 'KM', 'NA', and 'YE' do not have any ESPEN site level examinations points.
+Ephemeral notes.
 
 <br>
+
+#### Guide Notes
+
+* [data](./data) is the raw data directory.
+* [src](./src) is the directory of programs.
+
+The countries 'DJ', 'DZ', 'GQ', 'KM', 'NA', and 'YE' do not have any ESPEN experiment data.
+
 <br>
 
-### Snippets
+#### Development Notes
 
 In order to use Jupyter Lab 3.4.2 disable ``nbclassic``
 
@@ -21,14 +29,11 @@ In order to use Jupyter Lab 3.4.2 disable ``nbclassic``
 
 <br>
 
-To generate the ``pylint`` inspector run
+To generate the [``pylint``](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html) inspector run
 
 ````shell
 pylint --generate-rcfile > .pylintrc
 ````
-
-There's more about ``pylint`` [online](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html)
-
 
 <br>
 <br>
