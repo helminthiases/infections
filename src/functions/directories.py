@@ -1,7 +1,13 @@
+"""
+Module: directories
+"""
 import os
 
 
 class Directories:
+    """
+    For clearing & creating directories
+    """
 
     def __init__(self):
         """
