@@ -6,7 +6,6 @@ import os
 
 import pandas as pd
 
-import src.source.espen
 import src.functions.directories
 
 
@@ -15,14 +14,10 @@ class Countries:
     Creates a countries gazetteer
     """
 
-    def __init__(self, key: str):
+    def __init__(self):
         """
 
-        :param key: API Key
         """
-
-        # API Key
-        self.key = key
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'gazetteer')
@@ -68,9 +63,8 @@ class Countries:
         :return:
         """
 
-        objects = src.source.espen.ESPEN(base='cartographies').request(
-            params={'api_key': self.key, 'admin_level': 'admin0'})
-        frame = pd.DataFrame.from_records(objects)
+        frame = pd.read_json(path_or_buf=os.path.join(os.getcwd(), 'data', 'ESPEN', 'cartographies', 'countries.json'))
+
         frame = self.__structure(data=frame)
 
         if self.__write(data=frame):
