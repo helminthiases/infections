@@ -15,10 +15,10 @@ def main():
 
     logger.info('infections')
 
-    message = src.helminth.countries.Countries().exc()
+    message = src.data.countries.Countries().exc()
     logger.info(message)
 
-    messages = src.helminth.experiments.Experiments().exc()
+    messages = src.data.experiments.Experiments().exc()
     logger.info(messages)
 
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # Libraries
-    import src.helminth.countries
-    import src.helminth.experiments
+    import src.data.countries
+    import src.data.experiments
 
     main()
