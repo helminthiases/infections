@@ -1,0 +1,54 @@
+iso2,iso3,admin_level,admin0,admin0_id,region,who_region,continent
+BI,BDI,admin0,Burundi,6,Eastern Africa,AFRO,Africa
+KM,COM,admin0,Comoros,11,Eastern Africa,AFRO,Africa
+ER,ERI,admin0,Eritrea,16,Eastern Africa,AFRO,Africa
+ET,ETH,admin0,Ethiopia,17,Eastern Africa,AFRO,Africa
+KE,KEN,admin0,Kenya,23,Eastern Africa,AFRO,Africa
+MG,MDG,admin0,Madagascar,26,Eastern Africa,AFRO,Africa
+MW,MWI,admin0,Malawi,27,Eastern Africa,AFRO,Africa
+MU,MUS,admin0,Mauritius,30,Eastern Africa,AFRO,Africa
+MZ,MOZ,admin0,Mozambique,31,Eastern Africa,AFRO,Africa
+RW,RWA,admin0,Rwanda,35,Eastern Africa,AFRO,Africa
+TZ,TZA,admin0,Tanzania (Mainland),45,Eastern Africa,AFRO,Africa
+UG,UGA,admin0,Uganda,44,Eastern Africa,AFRO,Africa
+ZM,ZMB,admin0,Zambia,46,Eastern Africa,AFRO,Africa
+ZW,ZWE,admin0,Zimbabwe,47,Eastern Africa,AFRO,Africa
+SO,SOM,admin0,Somalia,5780,Eastern Africa,EMRO,Africa
+AO,AGO,admin0,Angola,2,Middle Africa,AFRO,Africa
+CM,CMR,admin0,Cameroon,7,Middle Africa,AFRO,Africa
+SC,SYC,admin0,Seychelles,38,Eastern Africa,AFRO,Africa
+ZZ,TZZ,admin0,Tanzania (Zanzibar),5841,Eastern Africa,AFRO,Africa
+CF,CAF,admin0,Central African Republic,9,Middle Africa,AFRO,Africa
+TD,TCD,admin0,Chad,10,Middle Africa,AFRO,Africa
+CG,COG,admin0,Congo,12,Middle Africa,AFRO,Africa
+CD,COD,admin0,"Congo, DRC",14,Middle Africa,AFRO,Africa
+BF,BFA,admin0,Burkina Faso,5,Western Africa,AFRO,Africa
+SN,SEN,admin0,Senegal,37,Western Africa,AFRO,Africa
+SL,SLE,admin0,Sierra Leone,39,Western Africa,AFRO,Africa
+DJ,DJI,admin0,Djibouti,5774,Eastern Africa,EMRO,Africa
+GQ,GNQ,admin0,Equatorial Guinea,15,Middle Africa,AFRO,Africa
+GA,GAB,admin0,Gabon,18,Middle Africa,AFRO,Africa
+DZ,DZA,admin0,Algeria,1,Northern Africa,AFRO,Africa
+SS,SSD,admin0,South Sudan,41,Northern Africa,AFRO,Africa
+EG,EGY,admin0,Egypt,5775,Northern Africa,EMRO,Africa
+SD,SDN,admin0,Sudan,5781,Northern Africa,EMRO,Africa
+BW,BWA,admin0,Botswana,4,Southern Africa,AFRO,Africa
+NA,NAM,admin0,Namibia,32,Southern Africa,AFRO,Africa
+ZA,ZAF,admin0,South Africa,40,Southern Africa,AFRO,Africa
+BJ,BEN,admin0,Benin,3,Western Africa,AFRO,Africa
+ST,STP,admin0,Sao Tome & Principe,36,Middle Africa,AFRO,Africa
+SZ,SWZ,admin0,Eswatini,42,Southern Africa,AFRO,Africa
+CI,CIV,admin0,Cote d'Ivoire,13,Western Africa,AFRO,Africa
+LS,LSO,admin0,Lesotho,24,Southern Africa,AFRO,Africa
+GH,GHA,admin0,Ghana,20,Western Africa,AFRO,Africa
+GN,GIN,admin0,Guinea,21,Western Africa,AFRO,Africa
+CV,CPV,admin0,Cape Verde,8,Western Africa,AFRO,Africa
+GW,GNB,admin0,Guinea-Bissau,22,Western Africa,AFRO,Africa
+LR,LBR,admin0,Liberia,25,Western Africa,AFRO,Africa
+ML,MLI,admin0,Mali,28,Western Africa,AFRO,Africa
+MR,MRT,admin0,Mauritania,29,Western Africa,AFRO,Africa
+NE,NER,admin0,Niger,33,Western Africa,AFRO,Africa
+NG,NGA,admin0,Nigeria,34,Western Africa,AFRO,Africa
+GM,GMB,admin0,The Gambia,19,Western Africa,AFRO,Africa
+TG,TGO,admin0,Togo,43,Western Africa,AFRO,Africa
+YE,YEM,admin0,Yemen,10747,Western Asia,EMRO,Asia
