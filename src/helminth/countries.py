@@ -1,7 +1,6 @@
 """
 Module: countries
 """
-import logging
 import os
 
 import pandas as pd
@@ -19,16 +18,23 @@ class Countries:
 
         """
 
+        self.source = os.path.join(os.getcwd(), 'data', 'ESPEN', 'cartographies')
+
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'gazetteer')
         src.functions.directories.Directories().create(self.storage)
 
-        # The required fields, and the grouping fields for determining distinct
-        # data years per country
-        self.fields = ['year', 'continent', 'region', 'who_region', 'admin0', 'admin0_id',
-                       'iso2', 'iso3', 'admin_level']
-        self.group = ['iso2', 'iso3', 'admin_level', 'admin0', 'admin0_id', 'region',
-                      'who_region', 'continent']
+        # The required fields
+        self.fields = ['iso2', 'iso3', 'admin_level', 'admin0', 'admin0_id', 'region', 'who_region', 'continent']
+
+    def __read(self) -> pd.DataFrame:
+
+        try:
+            frame = pd.read_json(path_or_buf=os.path.join(self.source, 'countries.json'))
+        except OSError as err:
+            raise Exception(err.strerror) from err
+
+        return frame
 
     def __structure(self, data: pd.DataFrame) -> pd.DataFrame:
         """
@@ -38,12 +44,11 @@ class Countries:
         """
 
         frame = data.copy().loc[:, self.fields].drop_duplicates()
-        countries = frame.groupby(self.group)[['year']].agg(lambda x: ', '.join(x.astype(str)))
-        countries.reset_index(drop=False, inplace=True)
+        frame.reset_index(drop=False, inplace=True)
 
-        return countries
+        return frame
 
-    def __write(self, data: pd.DataFrame):
+    def __write(self, data: pd.DataFrame) -> str:
         """
 
         :param data:
@@ -53,23 +58,16 @@ class Countries:
         try:
             data.to_csv(path_or_buf=os.path.join(self.storage, 'countries.csv'),
                         index=False, header=True, encoding='utf-8')
-            return True
+            return 'The countries gazetteer is available within {}'.format(self.storage.replace(os.getcwd(), ''))
         except OSError as err:
             raise Exception(err.strerror) from err
 
-    def exc(self):
+    def exc(self) -> str:
         """
 
         :return:
         """
 
-        frame = pd.read_json(path_or_buf=os.path.join(os.getcwd(), 'data', 'ESPEN', 'cartographies', 'countries.json'))
-
+        frame = self.__read()
         frame = self.__structure(data=frame)
-
-        if self.__write(data=frame):
-            logging.basicConfig(level=logging.INFO,
-                                format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
-                                datefmt='%Y-%m-%d %H:%M:%S')
-            logger = logging.getLogger(__name__)
-            logger.info('The countries gazetteer is available within %s', self.storage.replace(os.getcwd(), ''))
+        return self.__write(data=frame)
