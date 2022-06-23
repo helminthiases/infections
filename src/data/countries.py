@@ -44,7 +44,7 @@ class Countries:
         """
 
         frame = data.copy().loc[:, self.fields].drop_duplicates()
-        frame.reset_index(drop=False, inplace=True)
+        frame.reset_index(drop=True, inplace=True)
 
         return frame
 
