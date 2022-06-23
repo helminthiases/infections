@@ -35,8 +35,9 @@ class Experiments:
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
         src.functions.directories.Directories().create(self.storage)
 
+    @staticmethod
     @dask.delayed
-    def __read(self, uri: str):
+    def __read(uri: str):
         """
         Reads ESPEN STH experiments data
 
