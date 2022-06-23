@@ -1,12 +1,12 @@
 """
-Module: consistency
+Module: inspect
 """
 import pandas as pd
 
 
 class Inspect:
     """
-    Ensures the consistency of a field's data; for the ESPEN data repository
+    Inspects the data of specific fields; for the ESPEN data repository
 
     """
 
