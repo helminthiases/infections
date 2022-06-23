@@ -44,8 +44,6 @@ class Experiments:
         :return:
         """
 
-        print(uri)
-
         try:
             frame = pd.read_json(path_or_buf=uri)
         except OSError as err:
