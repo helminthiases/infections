@@ -15,7 +15,8 @@ def main():
 
     logger.info('infections')
 
-    src.helminth.countries.Countries().exc()
+    message = src.helminth.countries.Countries().exc()
+    logger.info(message)
 
 
 if __name__ == '__main__':
