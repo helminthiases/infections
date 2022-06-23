@@ -8,7 +8,7 @@ import pandas as pd
 
 import src.source.espen
 import src.functions.directories
-import src.source.consistency
+import src.source.inspect
 
 
 class Points:
@@ -33,7 +33,7 @@ class Points:
         self.interface = src.source.espen.ESPEN(base='data')
 
         # Consistency
-        self.consistency = src.source.consistency.Consistency(level=level)
+        self.consistency = src.source.inspect.Inspect(level=level)
 
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
