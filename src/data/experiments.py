@@ -10,7 +10,7 @@ import pandas as pd
 
 import config
 import src.functions.directories
-import src.source.inspect
+import src.data.inspect
 
 
 class Experiments:
@@ -29,7 +29,7 @@ class Experiments:
         self.fields = config.Config().fields().experiments
 
         # Data inspection instance
-        self.inspect = src.source.inspect.Inspect(level='sitelevel')
+        self.inspect = src.data.inspect.Inspect(level='sitelevel')
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
