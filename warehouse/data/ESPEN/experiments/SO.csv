@@ -1,0 +1,12 @@
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
+SOM,SO,,,,abbiamo,,,,99,,,1981,6.0,20,158,58,,,158,37,,,158,83,,,3,29369
+SOM,SO,,,,afgoye,,,,99,,,1984,1.0,20,278,4,,,278,19,,,278,164,,,3,30730
+SOM,SO,,,,burao,,,,99,,,1986,1.0,45,234,2,,,234,1,,,234,8,,,3,30733
+SOM,SO,,,,"chisimario, near kisimaio",,,,99,,,1982,1.0,65,84,4,,,84,27,,,84,22,,,3,31660
+SOM,SO,,,0.0,daymo samo,,45.515999,,99,,,1980,1.0,65,50,3,,,50,7,,,50,3,,,3,30729
+SOM,SO,,,,"farhane, near merca",,,,99,,,1980,1.0,65,142,20,,,142,46,,,142,9,,,3,30732
+SOM,SO,5609.0,56009.0,56009.0,kismayo,,42.537998,,99,,,1986,1.0,45,283,48,,,283,85,,,283,223,,,3,30345
+SOM,SO,,,,lafoole,,,,99,,,1984,6.0,18,237,107,,,237,46,,,237,179,,,3,30731
+SOM,SO,,,,merin gubai and bulo mereerta,,,,99,,,1984,1.0,45,152,4,,,152,23,,,152,7,,,3,29367
+SOM,SO,,,0.0,mogadishu,,45.341,,99,,,1983,,6,740,356,,,740,83,,,740,491,,,3,29370
+SOM,SO,,,,mooda moode,,,,99,,,1980,10.0,65,127,1,,,127,2,,,127,2,,,3,29368
