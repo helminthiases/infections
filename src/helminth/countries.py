@@ -21,7 +21,7 @@ class Countries:
         self.source = os.path.join(os.getcwd(), 'data', 'ESPEN', 'cartographies')
 
         # The storage area of the countries file
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'gazetteer')
+        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'cartographies')
         src.functions.directories.Directories().create(self.storage)
 
         # The required fields
