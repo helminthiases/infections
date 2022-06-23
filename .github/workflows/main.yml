@@ -34,11 +34,8 @@ jobs:
           echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
           formulae symbols (F63), undefined variable names (F82):"
 
-          echo "src/source"
-          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/source
-
-          echo "src/helminth"
-          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/helminth
+          echo "src/data"
+          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/data
 
           echo "src/functions"
           flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/functions
@@ -47,11 +44,8 @@ jobs:
           printf "\n"
           echo "Complexity issues:"
 
-          echo "src/source"
-          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/source
-
-          echo "src/helminth"
-          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/helminth
+          echo "src/data"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/data
 
           echo "src/functions"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/functions
@@ -65,11 +59,8 @@ jobs:
           printf "\n Module src/main.py"
           pylint --rcfile .pylintrc src/main.py
 
-          printf "\n Package src/source"
-          pylint --rcfile .pylintrc src/source
-
-          printf "\n Package src/helminth"
-          pylint --rcfile .pylintrc src/helminth
+          printf "\n Package src/data"
+          pylint --rcfile .pylintrc src/data
 
           printf "\n Package src/functions"
           pylint --rcfile .pylintrc src/functions
