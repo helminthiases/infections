@@ -4,7 +4,7 @@ Module: consistency
 import pandas as pd
 
 
-class Consistency:
+class Inspect:
     """
     Ensures the consistency of a field's data; for the ESPEN data repository
 
