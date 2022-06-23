@@ -18,6 +18,9 @@ def main():
     message = src.helminth.countries.Countries().exc()
     logger.info(message)
 
+    messages = src.helminth.experiments.Experiments().exc()
+    logger.info(messages)
+
 
 if __name__ == '__main__':
     # Paths
@@ -31,6 +34,8 @@ if __name__ == '__main__':
                         datefmt='%Y-%m-%d %H:%M:%S')
     logger = logging.getLogger(__name__)
 
+    # Libraries
     import src.helminth.countries
+    import src.helminth.experiments
 
     main()
