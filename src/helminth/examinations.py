@@ -51,7 +51,6 @@ if __name__ == '__main__':
     import config
     import src.source.keys
     import src.helminth.countries
-    import src.helminth.units
     import src.source.points
 
     fields = config.Config().fields()
