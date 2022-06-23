@@ -33,7 +33,7 @@ class Points:
         self.interface = src.source.espen.ESPEN(base='data')
 
         # Consistency
-        self.consistency = src.source.inspect.Inspect(level=level)
+        self.inspect = src.source.inspect.Inspect(level=level)
 
     @dask.delayed
     def __structure(self, data: pd.DataFrame):
@@ -54,7 +54,7 @@ class Points:
         points.rename(mapper=str.lower, axis='columns', inplace=True)
         points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
                       inplace=True)
-        points = self.consistency.exc(data=points.loc[:, self.fields])
+        points = self.inspect.exc(data=points.loc[:, self.fields])
 
         return points
 
