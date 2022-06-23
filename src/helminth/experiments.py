@@ -49,7 +49,7 @@ class Experiments:
         try:
             frame = pd.read_json(path_or_buf=uri)
         except OSError as err:
-            raise Exception(err.strerror)
+            raise Exception(err.strerror) from err
 
         return frame
 
