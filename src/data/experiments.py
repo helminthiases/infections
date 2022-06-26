@@ -10,6 +10,7 @@ import pandas as pd
 
 import config
 import src.functions.directories
+import src.functions.streams
 import src.experiments.formats
 
 
@@ -25,56 +26,29 @@ class Experiments:
 
         self.paths = glob.glob(os.path.join(os.getcwd(), 'data', 'ESPEN', 'experiments', '*.json'))
 
-        # The experiment fields of interest
-        self.fields = config.Config().fields().experiments
-
         # Data inspection instance
         self.formats = src.experiments.formats.Formats()
+
+        # Reading and writing
+        self.streams = src.functions.streams.Streams()
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
         src.functions.directories.Directories().create(self.storage)
 
-    @staticmethod
     @dask.delayed
-    def __read(uri: str):
+    def __read(self, uri: str):
         """
         Reads ESPEN STH experiments data
 
         :param uri: The local path + file name string
         :return:
         """
-
-        try:
-            frame = pd.read_json(path_or_buf=uri)
-        except OSError as err:
-            raise Exception(err.strerror) from err
-
-        return frame
+        
+        return self.streams.read(uri=uri)
 
     @dask.delayed
-    def __structure(self, data: pd.DataFrame):
-        """
-
-        :param data:
-        :return:
-        """
-
-        points = data.copy()
-
-        if points.empty:
-            return points
-
-        # Ensure that each field's name is lower-cased & in-line with naming patterns. Inspect.
-        points.rename(mapper=str.lower, axis='columns', inplace=True)
-        points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
-                      inplace=True)
-        points = self.formats.exc(data=points.loc[:, self.fields])
-
-        return points
-
-    @dask.delayed
-    def __write(self, data: pd.DataFrame, name: str):
+    def __formatted(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -83,15 +57,34 @@ class Experiments:
         """
 
         if data.empty:
-            return f'{name}: empty'
+            return data
 
-        try:
-            data.to_csv(path_or_buf=os.path.join(self.storage, f'{name}.csv'),
-                        index=False, header=True, encoding='utf-8')
-            return f'{name}: succeeded'
-        except OSError as err:
-            raise Exception(err.strerror) from err
+        # Format
+        frame = self.formats.exc(data=data)
 
+        # Write
+        self.streams.write(data=frame, path=os.path.join(self.storage, f'{name}.csv'))
+
+        return frame
+
+    @dask.delayed
+    def __reduced(self, data: pd.DataFrame, name: str):
+        """
+
+        :param data:
+        :param name:
+        :return:
+        """
+
+    @dask.delayed
+    def __equivalent(self, data: pd.DataFrame, name: str):
+        """
+        
+        :param data: 
+        :param name: 
+        :return: 
+        """
+        
     def exc(self):
         """
 
@@ -101,8 +94,11 @@ class Experiments:
         computations = []
         for path in self.paths:
             frame = self.__read(uri=path)
-            frame = self.__structure(data=frame)
-            message = self.__write(data=frame, name=pathlib.Path(path).stem)
+            frame = self.__formatted(data=frame)
+
+
+
+            message = ''
 
             computations.append(message)
 
