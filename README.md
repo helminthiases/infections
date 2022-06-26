@@ -36,6 +36,10 @@ pylint --generate-rcfile > .pylintrc
 ````
 
 <br>
+
+Beware of [numpy axes](https://www.sharpsightlabs.com/blog/numpy-axes-explained/) (cf. pandas axes).
+
+<br>
 <br>
 
 <br>
