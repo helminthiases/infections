@@ -29,7 +29,7 @@ class Experiments:
         self.fields = config.Config().fields().experiments
 
         # Data inspection instance
-        self.formats = src.experiments.formats.Formats(level='sitelevel')
+        self.formats = src.experiments.formats.Formats()
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
