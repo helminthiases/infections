@@ -81,8 +81,9 @@ class Experiments:
 
         return frame
 
+    @staticmethod
     @dask.delayed
-    def __equivalent(self, data: pd.DataFrame):
+    def __equivalent(data: pd.DataFrame):
         """
 
         :param data:
