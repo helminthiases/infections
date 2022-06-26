@@ -35,7 +35,7 @@ class Distances:
         return frame
 
     @staticmethod
-    def __identical(data: gpd.GeoDataFrame):
+    def __dissimilar(data: gpd.GeoDataFrame, limit: float):
         """
 
         :param data:
@@ -43,15 +43,16 @@ class Distances:
         """
 
         frame = data.copy()
-        condition = (frame['shortest'].floordiv(1) != 0)
+        condition = (frame['shortest'].floordiv(1) > limit)
         frame.loc[condition, 'dst'] = frame.loc[condition, 'src']
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame, limit: float):
         """
 
         :param data: An experiments data set
+        :param limit: A pair of points are dissimilar if the distance between them is > limit
         :return:
         """
 
@@ -62,6 +63,6 @@ class Distances:
 
         # distance
         frame = self.__distances(data=frame)
-        frame = self.__identical(data=frame)
+        frame = self.__dissimilar(data=frame, limit=limit)
 
         return frame
