@@ -10,16 +10,13 @@ class Formats:
 
     """
 
-    def __init__(self, level: str):
+    def __init__(self):
         """
 
-        :param level: The ESPEN project data levels, e.g., sitelevel (site level), iu (implementation unit)
         """
-
-        self.level = level
 
     @staticmethod
-    def __site(data: pd.DataFrame):
+    def __text(data: pd.DataFrame):
         """
 
         :param data:
@@ -44,6 +41,4 @@ class Formats:
         :return:
         """
 
-        return {
-            'sitelevel': self.__site(data=data)
-        }.get(self.level, LookupError('{} could not be mapped to a function'.format(self.level)))
+        return  self.__text(data=data)
