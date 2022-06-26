@@ -41,4 +41,4 @@ class Formats:
         :return:
         """
 
-        return  self.__text(data=data)
+        return self.__text(data=data)
