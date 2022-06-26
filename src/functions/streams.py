@@ -1,9 +1,9 @@
 """
 Module: streams
 """
-import pandas as pd
-
 import pathlib
+
+import pandas as pd
 
 
 class Streams:
