@@ -27,7 +27,7 @@ class Experiments:
         self.paths = glob.glob(os.path.join(os.getcwd(), 'data', 'ESPEN', 'experiments', '*.json'))
 
         # Data inspection instance
-        self.formats = src.experiments.format.Formats()
+        self.format = src.experiments.format.Format()
 
         # Reading and writing
         self.streams = src.functions.streams.Streams()
@@ -60,7 +60,7 @@ class Experiments:
             return data
 
         # Format
-        frame = self.formats.exc(data=data)
+        frame = self.format.exc(data=data)
 
         # Write
         self.streams.write(data=frame, path=os.path.join(self.storage, f'{name}.csv'))
