@@ -86,10 +86,13 @@ class Experiments:
         """
 
         :param data:
-        :return: 
+        :return:
         """
 
-        return f'in progress {data.shape[0]}'
+        frame = data.copy()
+        state = frame.empty
+
+        return f'in progress {state}'
 
     def exc(self):
         """
@@ -107,7 +110,7 @@ class Experiments:
             frame = self.__read(uri=path)
             frame = self.__format(data=frame, name=name)
             frame = self.__reduce(data=frame, name=name)
-            message = self.__equivalent(data=frame, name=name)
+            message = self.__equivalent(data=frame)
 
             computations.append(message)
 
