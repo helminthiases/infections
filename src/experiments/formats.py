@@ -4,7 +4,7 @@ Module: inspect
 import pandas as pd
 
 
-class Inspect:
+class Formats:
     """
     Inspects the data of specific fields; for the ESPEN data repository
 
