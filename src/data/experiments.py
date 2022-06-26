@@ -12,6 +12,7 @@ import src.experiments.format
 import src.experiments.time
 import src.experiments.geographical
 import src.experiments.measures
+
 import src.functions.directories
 import src.functions.streams
 
@@ -81,15 +82,14 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __equivalent(self, data: pd.DataFrame, name: str):
+    def __equivalent(self, data: pd.DataFrame):
         """
-        
-        :param data: 
-        :param name: 
+
+        :param data:
         :return: 
         """
 
-        return 'in progress'
+        return f'in progress {data.shape[0]}'
 
     def exc(self):
         """
