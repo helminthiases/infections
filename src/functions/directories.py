@@ -28,7 +28,7 @@ class Directories:
                   for base, _, files in os.walk(path) for file in files]
 
         if any(files_):
-            raise Exception('Unable to delete all files within path {}'.format(path))
+            raise Exception(f'Unable to delete all files within path {path}')
 
         # ... then, directories
         directories_ = [os.removedirs(os.path.join(base, directory))
@@ -37,7 +37,7 @@ class Directories:
                         if os.path.exists(os.path.join(base, directory))]
 
         if any(directories_):
-            raise Exception('Unable to delete all directories within path {}'.format(path))
+            raise Exception(f'Unable to delete all directories within path {path}')
 
     @staticmethod
     def create(path: str):
