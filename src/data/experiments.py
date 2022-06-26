@@ -48,7 +48,7 @@ class Experiments:
         return self.streams.read(uri=uri)
 
     @dask.delayed
-    def __formatted(self, data: pd.DataFrame, name: str):
+    def __format(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -68,7 +68,7 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __reduced(self, data: pd.DataFrame, name: str):
+    def __reduce(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -94,7 +94,7 @@ class Experiments:
         computations = []
         for path in self.paths:
             frame = self.__read(uri=path)
-            frame = self.__formatted(data=frame)
+            frame = self.__format(data=frame)
 
 
 
