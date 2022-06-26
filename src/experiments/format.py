@@ -6,7 +6,7 @@ import pandas as pd
 import config
 
 
-class Formats:
+class Format:
     """
     Inspects the data of specific fields; for the ESPEN data repository
 
