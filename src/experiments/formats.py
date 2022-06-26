@@ -3,6 +3,8 @@ Module: inspect
 """
 import pandas as pd
 
+import config
+
 
 class Formats:
     """
@@ -14,6 +16,22 @@ class Formats:
         """
 
         """
+
+        # The experiment fields of interest
+        self.fields = config.Config().fields().experiments
+
+        # Address the field names discrepancies
+        self.rename = {'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'}
+
+    def __title(self, data: pd.DataFrame):
+
+        frame = data.copy()
+
+        # Ensure that each field's name is lower-cased & in-line with naming patterns. Inspect.
+        frame.rename(mapper=str.lower, axis='columns', inplace=True)
+        frame.rename(columns=self.rename, inplace=True)
+        
+        return frame.loc[:, self.fields]
 
     @staticmethod
     def __text(data: pd.DataFrame):
@@ -41,4 +59,7 @@ class Formats:
         :return:
         """
 
-        return self.__text(data=data)
+        frame = self.__title(data=data)
+        frame = self.__text(data=frame)
+
+        return frame
