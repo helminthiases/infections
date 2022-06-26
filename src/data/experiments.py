@@ -83,12 +83,12 @@ class Experiments:
         """
 
         if data.empty:
-            return '{}: empty'.format(name)
+            return f'{name}: empty'
 
         try:
-            data.to_csv(path_or_buf=os.path.join(self.storage, '{}.csv'.format(name)),
+            data.to_csv(path_or_buf=os.path.join(self.storage, f'{name}.csv'),
                         index=False, header=True, encoding='utf-8')
-            return '{}: succeeded'.format(name)
+            return f'{name}: succeeded'
         except OSError as err:
             raise Exception(err.strerror) from err
 
