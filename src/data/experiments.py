@@ -29,7 +29,7 @@ class Experiments:
         self.fields = config.Config().fields().experiments
 
         # Data inspection instance
-        self.inspect = src.experiments.formats.Inspect(level='sitelevel')
+        self.formats = src.experiments.formats.Formats(level='sitelevel')
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
@@ -69,7 +69,7 @@ class Experiments:
         points.rename(mapper=str.lower, axis='columns', inplace=True)
         points.rename(columns={'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'},
                       inplace=True)
-        points = self.inspect.exc(data=points.loc[:, self.fields])
+        points = self.formats.exc(data=points.loc[:, self.fields])
 
         return points
 
