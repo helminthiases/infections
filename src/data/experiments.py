@@ -11,7 +11,7 @@ import pandas as pd
 import config
 import src.functions.directories
 import src.functions.streams
-import src.experiments.formats
+import src.experiments.format
 
 
 class Experiments:
@@ -27,7 +27,7 @@ class Experiments:
         self.paths = glob.glob(os.path.join(os.getcwd(), 'data', 'ESPEN', 'experiments', '*.json'))
 
         # Data inspection instance
-        self.formats = src.experiments.formats.Formats()
+        self.formats = src.experiments.format.Formats()
 
         # Reading and writing
         self.streams = src.functions.streams.Streams()
