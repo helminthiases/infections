@@ -58,7 +58,8 @@ class Countries:
         try:
             data.to_csv(path_or_buf=os.path.join(self.storage, 'countries.csv'),
                         index=False, header=True, encoding='utf-8')
-            return 'The countries gazetteer is available within {}'.format(self.storage.replace(os.getcwd(), ''))
+            directory = self.storage.replace(os.getcwd(), '')
+            return f'The countries gazetteer is available within {directory}'
         except OSError as err:
             raise Exception(err.strerror) from err
 
