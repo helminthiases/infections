@@ -62,5 +62,6 @@ class Equivalent:
 
         accept = (frequencies & fractions)
         frame = data.copy().loc[accept, :]
+        
 
         return frame
