@@ -4,11 +4,7 @@ The Soil Transmitted Helminths Project
 
 <br>
 
-### Notes
-
-Ephemeral notes.
-
-<br>
+### Ephemeral Notes
 
 #### Guide Notes
 
