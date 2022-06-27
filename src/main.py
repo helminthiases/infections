@@ -23,6 +23,7 @@ def main():
 
 
 if __name__ == '__main__':
+    
     # Paths
     root = os.getcwd()
     sys.path.append(root)
@@ -37,5 +38,6 @@ if __name__ == '__main__':
     # Libraries
     import src.data.countries
     import src.data.experiments
+    import src.experiments.equivalent
 
     main()
