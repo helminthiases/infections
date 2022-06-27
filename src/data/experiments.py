@@ -36,8 +36,9 @@ class Experiments:
         for directory in ['formatted', 'reduced', 'equivalent']:
             src.functions.directories.Directories().create(os.path.join(self.storage, directory))
 
+    @staticmethod
     @dask.delayed
-    def __read(self, uri: str):
+    def __read(uri: str):
         """
         Reads ESPEN STH experiments data
 
