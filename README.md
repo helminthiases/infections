@@ -4,12 +4,6 @@ The Soil Transmitted Helminths Project
 
 <br>
 
-### Notes
-
-Ephemeral notes.
-
-<br>
-
 #### Guide Notes
 
 * [data](./data) is the raw data directory.

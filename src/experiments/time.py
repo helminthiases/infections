@@ -22,7 +22,7 @@ class Time:
         :return:
         """
 
-        frame = data.copy()[data['year'].notna(), :]
+        frame = data.copy().loc[data['year'].notna(), :]
 
         return frame
 

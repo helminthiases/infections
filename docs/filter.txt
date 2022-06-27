@@ -1,5 +1,7 @@
 tensorflow
+dask
 pandas
+geopandas
 seaborn
 pytest
 coverage

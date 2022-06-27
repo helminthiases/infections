@@ -1,3 +1,6 @@
+"""
+Module: distances
+"""
 import pandas as pd
 import numpy as np
 
@@ -5,6 +8,9 @@ import geopandas as gpd
 
 
 class Distances:
+    """
+    Nearest point calculations
+    """
 
     def __init__(self):
         """
@@ -52,7 +58,7 @@ class Distances:
         """
 
         :param data: An experiments data set
-        :param limit: A pair of points are dissimilar if the distance between them is > limit
+        :param limit: A pair of points are dissimilar if floor(distance between them) > limit
         :return:
         """
 

@@ -32,11 +32,13 @@ class Experiments:
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
+        src.functions.directories.Directories().cleanup(self.storage)
         for directory in ['formatted', 'reduced', 'equivalent']:
             src.functions.directories.Directories().create(os.path.join(self.storage, directory))
 
+    @staticmethod
     @dask.delayed
-    def __read(self, uri: str):
+    def __read(uri: str):
         """
         Reads ESPEN STH experiments data
 
@@ -44,7 +46,12 @@ class Experiments:
         :return:
         """
 
-        return self.streams.read(uri=uri)
+        try:
+            frame = pd.read_json(path_or_buf=uri)
+        except OSError as err:
+            raise Exception(err.strerror) from err
+
+        return frame
 
     @dask.delayed
     def __format(self, data: pd.DataFrame, name: str):
@@ -92,7 +99,7 @@ class Experiments:
 
         frame = src.experiments.equivalent.Equivalent().exc(data=data)
 
-        message = self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
+        message = self.streams.write(data=frame, path=os.path.join(self.storage, 'equivalent', f'{name}.csv'))
 
         return message
 
