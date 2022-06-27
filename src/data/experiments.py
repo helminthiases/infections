@@ -92,7 +92,7 @@ class Experiments:
 
         frame = src.experiments.equivalent.Equivalent().exc(data=data)
 
-        message = self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
+        message = self.streams.write(data=frame, path=os.path.join(self.storage, 'equivalent', f'{name}.csv'))
 
         return message
 
