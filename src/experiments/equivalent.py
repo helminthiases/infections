@@ -62,6 +62,6 @@ class Equivalent:
 
         accept = (frequencies & fractions)
         frame = data.copy().loc[accept, :]
-        
+        frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         return frame
