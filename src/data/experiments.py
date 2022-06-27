@@ -12,6 +12,7 @@ import src.experiments.format
 import src.experiments.time
 import src.experiments.geographical
 import src.experiments.measures
+import src.experiments.equivalent
 
 import src.functions.directories
 import src.functions.streams
