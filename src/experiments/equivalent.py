@@ -17,11 +17,11 @@ class Equivalent:
         """
 
     @staticmethod
-    def __frequencies(data: pd.DataFrame):
+    def __frequencies(data: pd.DataFrame) -> np.ndarray:
         """
-        the number of examinations per disease must be equivalent
+        The number of examinations per disease must be equivalent
 
-        :param data:
+        :param data: An experiments data set
         :return:
         """
 
@@ -31,11 +31,11 @@ class Equivalent:
         return condition
 
     @staticmethod
-    def __fractions(data: pd.DataFrame):
+    def __fractions(data: pd.DataFrame) -> np.ndarray:
         """
         The number of cases must not exceed the number of examinations conducted
 
-        :param data:
+        :param data: An experiments data set
         :return:
         """
 
@@ -50,7 +50,7 @@ class Equivalent:
 
         return condition
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:  An experiments data set
