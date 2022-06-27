@@ -44,7 +44,12 @@ class Experiments:
         :return:
         """
 
-        return self.streams.read(uri=uri)
+        try:
+            frame = pd.read_json(path_or_buf=uri)
+        except OSError as err:
+            raise Exception(err.strerror) from err
+
+        return frame
 
     @dask.delayed
     def __format(self, data: pd.DataFrame, name: str):
