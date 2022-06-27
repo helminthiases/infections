@@ -32,6 +32,7 @@ class Experiments:
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
+        src.functions.directories.Directories().cleanup(self.storage)
         for directory in ['formatted', 'reduced', 'equivalent']:
             src.functions.directories.Directories().create(os.path.join(self.storage, directory))
 
