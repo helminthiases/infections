@@ -8,12 +8,11 @@ import pathlib
 import dask
 import pandas as pd
 
+import src.experiments.equivalent
 import src.experiments.format
-import src.experiments.time
 import src.experiments.geographical
 import src.experiments.measures
-import src.experiments.equivalent
-
+import src.experiments.time
 import src.functions.directories
 import src.functions.streams
 
@@ -82,19 +81,20 @@ class Experiments:
 
         return frame
 
-    @staticmethod
     @dask.delayed
-    def __equivalent(data: pd.DataFrame):
+    def __equivalent(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
+        :param name:
         :return:
         """
 
-        frame = data.copy()
-        state = frame.empty
+        frame = src.experiments.equivalent.Equivalent().exc(data=data)
 
-        return f'in progress {state}'
+        message = self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
+
+        return message
 
     def exc(self):
         """
@@ -106,13 +106,12 @@ class Experiments:
 
         computations = []
         for path in paths:
-
             name = pathlib.Path(path).stem
 
             frame = self.__read(uri=path)
             frame = self.__format(data=frame, name=name)
             frame = self.__reduce(data=frame, name=name)
-            message = self.__equivalent(data=frame)
+            message = self.__equivalent(data=frame, name=name)
 
             computations.append(message)
 
