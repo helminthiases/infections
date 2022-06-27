@@ -52,7 +52,7 @@ class Distances:
         """
 
         :param data: An experiments data set
-        :param limit: A pair of points are dissimilar if the distance between them is > limit
+        :param limit: A pair of points are dissimilar if floor(distance between them) > limit
         :return:
         """
 
