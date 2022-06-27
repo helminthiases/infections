@@ -35,18 +35,3 @@ class Streams:
             return f'{name}: succeeded'
         except OSError as err:
             raise Exception(err.strerror) from err
-
-    @staticmethod
-    def read(uri: str):
-        """
-
-        :param uri:
-        :return:
-        """
-
-        try:
-            frame = pd.read_json(path_or_buf=uri)
-        except OSError as err:
-            raise Exception(err.strerror) from err
-
-        return frame
