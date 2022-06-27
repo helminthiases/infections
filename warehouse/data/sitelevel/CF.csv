@@ -1,3 +1,0 @@
-iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
-CAF,CF,9660,0,9660,bangui,,18.556999,4.366,4,,,1983,18,99,3352.0,420.0,,,3352.0,100,,,3352.0,95.0,,,3,30041
-CAF,CF,9660,0,9660,bangui,,18.556999,4.366,4,,,1982,1,99,350.0,132.0,,,350.0,46,,,0.0,0.0,,,3,30042

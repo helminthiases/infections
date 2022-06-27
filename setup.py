@@ -5,7 +5,7 @@ VERSION = '1.0.0'
 DESCRIPTION = 'Masters Project'
 AUTHOR = 'greyhypotheses'
 URL = 'https://github.com/helminthiases/infections'
-PYTHON_REQUIRES = '>=3.7.11'
+PYTHON_REQUIRES = '>=3.8'
 
 with open('README.md') as f:
     readme = f.read()
