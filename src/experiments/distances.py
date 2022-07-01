@@ -48,9 +48,14 @@ class Distances:
         :return:
         """
 
+        start = int(data['src'].max())
+
         frame = data.copy()
+        frame.loc[:, 'self'] = False
+
         condition = (frame['shortest'].floordiv(1) > limit)
-        frame.loc[condition, 'dst'] = frame.loc[condition, 'src']
+        frame.loc[condition, 'self'] = True
+        frame.loc[condition, 'dst'] = (2 * start) + frame.loc[condition, 'src']
 
         return frame
 
