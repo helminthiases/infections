@@ -35,7 +35,7 @@ def distances(data: pd.DataFrame, limit: float):
     :return:
     """
 
-    return src.networks.distances.Distances().exc(data=data, limit=limit)
+    return src.networks.linear.Distances().exc(data=data, limit=limit)
 
 
 @dask.delayed
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # custom classes
-    import src.networks.distances
+    import src.networks.linear
     import src.functions.streams
     import src.functions.directories
 
