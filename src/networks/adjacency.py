@@ -27,7 +27,7 @@ def read(path: str):
 
 
 @dask.delayed
-def distances(data: pd.DataFrame, limit: float):
+def linear(data: pd.DataFrame, limit: float):
     """
 
     :param data: An experiments data set
@@ -35,7 +35,7 @@ def distances(data: pd.DataFrame, limit: float):
     :return:
     """
 
-    return src.networks.linear.Distances().exc(data=data, limit=limit)
+    return src.networks.linear.Linear().exc(data=data, limit=limit)
 
 
 @dask.delayed
@@ -63,7 +63,7 @@ def main():
     computations = []
     for path in paths:
         frame: pd.DataFrame = read(path=path)
-        frame: gpd.GeoDataFrame = distances(data=frame, limit=0)
+        frame: gpd.GeoDataFrame = linear(data=frame, limit=0)
         message: str = streams(data=frame, path=os.path.join(storage, pathlib.Path(path).name))
         computations.append(message)
 
