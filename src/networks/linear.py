@@ -48,10 +48,7 @@ class Linear:
         :return:
         """
 
-        start = int(data['src'].max())
-
         frame = data.copy()
-        frame.loc[:, 'self'] = False
 
         condition = (frame['shortest'].floordiv(1) > limit)
         frame.loc[condition, 'dst'] = frame.loc[condition, 'src']
