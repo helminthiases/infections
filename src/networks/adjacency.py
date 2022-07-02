@@ -94,7 +94,7 @@ if __name__ == '__main__':
     import src.functions.directories
 
     # storage
-    storage = os.path.join(root, 'warehouse', 'data', 'ESPEN', 'networks', 'linear')
+    storage = os.path.join(root, 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
     directories = src.functions.directories.Directories()
     directories.cleanup(path=pathlib.Path(storage).parent.__str__())
     directories.create(storage)
