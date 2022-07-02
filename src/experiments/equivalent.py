@@ -39,14 +39,9 @@ class Equivalent:
         :return:
         """
 
-        condition = []
-        for cases, examinations in zip(['asc_positive', 'tt_positive', 'hk_positive'],
-                                       ['asc_examined', 'tt_examined', 'hk_examined']):
-            less = (data[cases] <= data[examinations])
-            less = np.array(less, ndmin=2).transpose()
-            condition.append(less)
-        condition = np.expand_dims(np.concatenate(condition, axis=1).all(axis=1),
-                                   axis=1)
+        condition = (data['asc_positive'] <= data['asc_examined']) & (data['tt_positive'] <= data['tt_examined']) & (
+                data['hk_positive'] <= data['hk_examined'])
+        condition = np.expand_dims(condition, axis=1)
 
         return condition
 
