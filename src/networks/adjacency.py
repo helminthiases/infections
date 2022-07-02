@@ -35,7 +35,7 @@ def linear(data: pd.DataFrame, limit: float):
     :return:
     """
 
-    return src.networks.linear.Linear().exc(data=data, limit=limit)
+    return src.networks.edges.Linear().exc(data=data, limit=limit)
 
 
 @dask.delayed
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # custom classes
-    import src.networks.linear
+    import src.networks.edges
     import src.functions.streams
     import src.functions.directories
 
