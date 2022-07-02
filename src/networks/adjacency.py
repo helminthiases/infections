@@ -35,7 +35,7 @@ def linear(data: pd.DataFrame, limit: float):
     :return:
     """
 
-    return src.networks.edges.Linear().exc(data=data, limit=limit)
+    return src.networks.edges.Edges().exc(data=data, limit=limit)
 
 
 @dask.delayed
