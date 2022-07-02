@@ -72,4 +72,7 @@ class Edges:
         frame = self.__distances(data=frame)
         frame = self.__dissimilar(data=frame, limit=limit)
 
-        return frame
+        # after the distance & edge calculations, drop the <geometry> field
+        # pd.DataFrame(frame).drop(columns=['geometry'])
+
+        return frame.drop(columns=['geometry'])
