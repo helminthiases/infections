@@ -27,7 +27,7 @@ def read(path: str):
 
 
 @dask.delayed
-def linear(data: pd.DataFrame, limit: float):
+def edges(data: pd.DataFrame, limit: float):
     """
 
     :param data: An experiments data set
@@ -63,7 +63,7 @@ def main():
     computations = []
     for path in paths:
         frame: pd.DataFrame = read(path=path)
-        frame: gpd.GeoDataFrame = linear(data=frame, limit=0)
+        frame: gpd.GeoDataFrame = edges(data=frame, limit=0)
         message: str = streams(data=frame, path=os.path.join(storage, pathlib.Path(path).name))
         computations.append(message)
 
