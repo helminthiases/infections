@@ -1,8 +1,8 @@
 """
 Module: equivalent
 """
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 class Equivalent:
@@ -27,7 +27,7 @@ class Equivalent:
 
         condition = (data['asc_examined'] == data['tt_examined']) & (data['asc_examined'] == data['hk_examined'])
         condition = np.array(condition, ndmin=2).transpose()
-        
+
         return condition
 
     @staticmethod
@@ -40,7 +40,7 @@ class Equivalent:
         """
 
         condition = []
-        for cases, examinations in zip(['asc_positive', 'tt_positive', 'hk_positive'], 
+        for cases, examinations in zip(['asc_positive', 'tt_positive', 'hk_positive'],
                                        ['asc_examined', 'tt_examined', 'hk_examined']):
             less = (data[cases] <= data[examinations])
             less = np.array(less, ndmin=2).transpose()
