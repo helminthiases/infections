@@ -7,7 +7,7 @@ import numpy as np
 import geopandas as gpd
 
 
-class Linear:
+class Edges:
     """
     Nearest point calculations
     """
