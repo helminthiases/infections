@@ -1,0 +1,7 @@
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn,hk_prevalence,asc_prevalence,tt_prevalence,sth_prevalence
+GNB,GW,2422.0,23708.0,23708.0,eb candjanbari,,-15.00961509,12.48716963,3,school,mapping,2018.0,10.0,14.0,50,4.0,0.0,0.0,50,0,0.0,0.0,50,0.0,0.0,0.0,1,33507,0.08,0.0,0.0,0.07547169811320754
+GNB,GW,2422.0,23708.0,23708.0,eb cuboroto,,-15.17003186,12.50190239,3,school,mapping,2018.0,10.0,14.0,50,8.0,0.0,0.0,50,0,0.0,0.0,50,0.0,0.0,0.0,1,33508,0.16,0.0,0.0,0.1509433962264151
+GNB,GW,2422.0,23708.0,23708.0,eb guidadji,,-15.42491631,12.53584142,3,school,mapping,2018.0,10.0,14.0,50,0.0,0.0,0.0,50,0,0.0,0.0,50,0.0,0.0,0.0,1,33509,0.0,0.0,0.0,0.0
+GNB,GW,2422.0,23708.0,23708.0,eb jumbembe,,-15.09695532,12.57289204,3,school,mapping,2018.0,10.0,13.0,50,2.0,0.0,0.0,50,0,0.0,0.0,50,0.0,0.0,0.0,1,33510,0.04,0.0,0.0,0.03773584905660377
+GNB,GW,2422.0,23708.0,23708.0,ebu unidade africana,,-15.21719754,12.48193651,3,school,mapping,2018.0,10.0,14.0,50,0.0,0.0,0.0,50,0,0.0,0.0,50,0.0,0.0,0.0,1,33511,0.0,0.0,0.0,0.0
+GNB,GW,2427.0,23755.0,23755.0,quitafine,,-15.08333,11.01667,3,,,1984.0,1.0,5.0,203,44.0,,,203,14,,,203,9.0,,,3,29649,0.21674876847290642,0.06896551724137931,0.04433497536945813,0.28594024718056155
