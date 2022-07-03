@@ -58,7 +58,7 @@ def main():
     """
 
     paths = glob.glob(
-        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'equivalent', '*.csv'))
+        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
 
     computations = []
     for path in paths:
