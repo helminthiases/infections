@@ -14,7 +14,7 @@ class Plausible:
 
         """
 
-        self.fields = ['asc_positive', 'tt_positive', 'hk_positive', 'asc_examined', 'tt_examined', 'hk_examined']
+        self.fields = ['asc_prevalence', 'tt_prevalence', 'hk_prevalence']
 
     def exc(self, data: pd.DataFrame):
         """
