@@ -4,7 +4,7 @@ Module: measures
 import pandas as pd
 
 
-class Measures:
+class Plausible:
     """
     Drops the records wherein all the disease measures do not exist
     """
