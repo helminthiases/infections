@@ -8,7 +8,7 @@ import pathlib
 import dask
 import pandas as pd
 
-import src.experiments.equivalent
+import src.experiments.metric
 import src.experiments.baseline
 import src.experiments.geographical
 import src.experiments.time
@@ -32,7 +32,7 @@ class Experiments:
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
         src.functions.directories.Directories().cleanup(self.storage)
-        for directory in ['baseline', 'reduced', 'equivalent']:
+        for directory in ['baseline', 'reduced', 'plausible', 'equivalent']:
             src.functions.directories.Directories().create(os.path.join(self.storage, directory))
 
     @staticmethod
@@ -87,7 +87,7 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __equivalent(self, data: pd.DataFrame, name: str):
+    def __metric(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -95,8 +95,10 @@ class Experiments:
         :return:
         """
 
-        frame = src.experiments.equivalent.Equivalent().exc(data=data)
+        frame = src.experiments.metric.Metric().plausible(data=data)
+        self.streams.write(data=frame, path=os.path.join(self.storage, 'plausible', f'{name}.csv'))
 
+        frame = src.experiments.metric.Metric().equivalent(data=frame)
         message = self.streams.write(data=frame, path=os.path.join(self.storage, 'equivalent', f'{name}.csv'))
 
         return message
@@ -116,7 +118,7 @@ class Experiments:
             frame = self.__read(uri=path)
             frame = self.__baseline(data=frame, name=name)
             frame = self.__reduce(data=frame, name=name)
-            message = self.__equivalent(data=frame, name=name)
+            message = self.__metric(data=frame, name=name)
 
             computations.append(message)
 
