@@ -30,21 +30,6 @@ class Equivalent:
 
         return condition
 
-    @staticmethod
-    def __fractions(data: pd.DataFrame) -> np.ndarray:
-        """
-        The number of cases must not exceed the number of examinations conducted
-
-        :param data: An experiments data set
-        :return:
-        """
-
-        condition = (data['asc_positive'] <= data['asc_examined']) & (data['tt_positive'] <= data['tt_examined']) & (
-                data['hk_positive'] <= data['hk_examined'])
-        condition = np.expand_dims(condition, axis=1)
-
-        return condition
-
     def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
@@ -53,10 +38,7 @@ class Equivalent:
         """
 
         frequencies = self.__frequencies(data=data)
-        fractions = self.__fractions(data=data)
-
-        accept = (frequencies & fractions)
-        frame = data.copy().loc[accept, :]
+        frame = data.copy().loc[frequencies, :]
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         return frame
