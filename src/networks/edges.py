@@ -1,10 +1,14 @@
 """
 Module: distances
 """
-import pandas as pd
-import numpy as np
+import os
 
 import geopandas as gpd
+import numpy as np
+import pandas as pd
+
+import src.functions.directories
+import src.functions.streams
 
 
 class Edges:
@@ -16,6 +20,11 @@ class Edges:
         """
 
         """
+
+        # storage
+        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
+        directories = src.functions.directories.Directories()
+        directories.create(self.storage)
 
     @staticmethod
     def __distances(data: gpd.GeoDataFrame):
@@ -55,11 +64,24 @@ class Edges:
 
         return frame
 
-    def exc(self, data: pd.DataFrame, limit: float):
+    def __write(self, data: pd.DataFrame, name: str):
+        """
+
+        :param data: The data set, with distance related features, that will be saved.
+        :param name: The stem name.
+        :return:
+        """
+
+        path = os.path.join(self.storage, f'{name}.csv')
+
+        return src.functions.streams.Streams().write(data=data, path=path)
+
+    def exc(self, data: pd.DataFrame, name: str, limit: float) -> pd.DataFrame:
         """
 
         :param data: An experiments data set
-        :param limit: A pair of points are dissimilar if floor(distance between them) > limit
+        :param name: The ISO 3166-1 alpha-2 country code of the experiments data
+        :param limit: A pair of points are dissimilar if floor(the distance between them) > limit
         :return:
         """
 
@@ -72,7 +94,8 @@ class Edges:
         frame = self.__distances(data=frame)
         frame = self.__dissimilar(data=frame, limit=limit)
 
-        # after the distance & edge calculations, drop the <geometry> field
-        # pd.DataFrame(frame).drop(columns=['geometry'])
+        # preserve
+        frame.drop(columns=['geometry'], inplace=True)
+        self.__write(data=frame, name=name)
 
-        return frame.drop(columns=['geometry'])
+        return frame
