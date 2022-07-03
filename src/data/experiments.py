@@ -8,10 +8,9 @@ import pathlib
 import dask
 import pandas as pd
 
-import src.experiments.equivalent
-import src.experiments.format
+import src.experiments.metric
+import src.experiments.baseline
 import src.experiments.geographical
-import src.experiments.measures
 import src.experiments.time
 import src.functions.directories
 import src.functions.streams
@@ -33,7 +32,7 @@ class Experiments:
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
         src.functions.directories.Directories().cleanup(self.storage)
-        for directory in ['formatted', 'reduced', 'equivalent']:
+        for directory in ['baseline', 'reduced', 'plausible', 'equivalent']:
             src.functions.directories.Directories().create(os.path.join(self.storage, directory))
 
     @staticmethod
@@ -54,7 +53,7 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __format(self, data: pd.DataFrame, name: str):
+    def __baseline(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -65,9 +64,9 @@ class Experiments:
         if data.empty:
             return data
 
-        frame = src.experiments.format.Format().exc(data=data)
+        frame = src.experiments.baseline.Baseline().exc(data=data)
 
-        self.streams.write(data=frame, path=os.path.join(self.storage, 'formatted', f'{name}.csv'))
+        self.streams.write(data=frame, path=os.path.join(self.storage, 'baseline', f'{name}.csv'))
 
         return frame
 
@@ -82,14 +81,13 @@ class Experiments:
 
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
-        frame = src.experiments.measures.Measures().exc(data=frame)
 
         self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
 
         return frame
 
     @dask.delayed
-    def __equivalent(self, data: pd.DataFrame, name: str):
+    def __metric(self, data: pd.DataFrame, name: str):
         """
 
         :param data:
@@ -97,8 +95,10 @@ class Experiments:
         :return:
         """
 
-        frame = src.experiments.equivalent.Equivalent().exc(data=data)
+        frame = src.experiments.metric.Metric().plausible(data=data)
+        self.streams.write(data=frame, path=os.path.join(self.storage, 'plausible', f'{name}.csv'))
 
+        frame = src.experiments.metric.Metric().equivalent(data=frame)
         message = self.streams.write(data=frame, path=os.path.join(self.storage, 'equivalent', f'{name}.csv'))
 
         return message
@@ -116,9 +116,9 @@ class Experiments:
             name = pathlib.Path(path).stem
 
             frame = self.__read(uri=path)
-            frame = self.__format(data=frame, name=name)
+            frame = self.__baseline(data=frame, name=name)
             frame = self.__reduce(data=frame, name=name)
-            message = self.__equivalent(data=frame, name=name)
+            message = self.__metric(data=frame, name=name)
 
             computations.append(message)
 

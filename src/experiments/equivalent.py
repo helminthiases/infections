@@ -1,8 +1,8 @@
 """
 Module: equivalent
 """
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 class Equivalent:
@@ -27,26 +27,6 @@ class Equivalent:
 
         condition = (data['asc_examined'] == data['tt_examined']) & (data['asc_examined'] == data['hk_examined'])
         condition = np.array(condition, ndmin=2).transpose()
-        
-        return condition
-
-    @staticmethod
-    def __fractions(data: pd.DataFrame) -> np.ndarray:
-        """
-        The number of cases must not exceed the number of examinations conducted
-
-        :param data: An experiments data set
-        :return:
-        """
-
-        condition = []
-        for cases, examinations in zip(['asc_positive', 'tt_positive', 'hk_positive'], 
-                                       ['asc_examined', 'tt_examined', 'hk_examined']):
-            less = (data[cases] <= data[examinations])
-            less = np.array(less, ndmin=2).transpose()
-            condition.append(less)
-        condition = np.expand_dims(np.concatenate(condition, axis=1).all(axis=1),
-                                   axis=1)
 
         return condition
 
@@ -58,10 +38,7 @@ class Equivalent:
         """
 
         frequencies = self.__frequencies(data=data)
-        fractions = self.__fractions(data=data)
-
-        accept = (frequencies & fractions)
-        frame = data.copy().loc[accept, :]
+        frame = data.copy().loc[frequencies, :]
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         return frame

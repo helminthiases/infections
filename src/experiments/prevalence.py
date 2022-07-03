@@ -1,6 +1,7 @@
 """
 Module: prevalence
 """
+import numpy as np
 import pandas as pd
 
 
@@ -15,7 +16,7 @@ class Prevalence:
         """
 
     @staticmethod
-    def individual(positive: pd.Series, examined: pd.Series):
+    def single(positive: pd.Series, examined: pd.Series):
         """
 
         :param positive: positive cases amongst examinations
@@ -23,10 +24,10 @@ class Prevalence:
         :return:
         """
 
-        return positive/examined
+        return np.where((positive <= examined) & (examined != 0), positive/examined, np.nan)
 
     @staticmethod
-    def geohelminth(ascariasis: pd.Series, trichuriasis: pd.Series, hookworm: pd.Series):
+    def geohelminth(ascariasis: np.ndarray, trichuriasis: np.ndarray, hookworm: np.ndarray) -> np.ndarray:
         """
         Calculates the prevalence of any soil transmitted helminth infection via the prevalence values
         of ascariasis, trichuriasis, and hookworm disease
@@ -37,8 +38,31 @@ class Prevalence:
         :return:
         """
 
-        factor = 1/1.06
-        series = (ascariasis + trichuriasis + hookworm) - ascariasis * (trichuriasis + hookworm) + ascariasis.subtract(
-            1) * (trichuriasis * hookworm)
+        sums = (ascariasis + trichuriasis + hookworm)
+        factor = 1 / 1.06
+        series = sums - ascariasis * (trichuriasis + hookworm) + (ascariasis - 1) * (trichuriasis * hookworm)
 
         return factor * series
+
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+
+        :param data: An experiments data set
+        :return:
+        """
+
+        frame = data.copy()
+
+        ascariasis = self.single(data['asc_positive'], data['asc_examined'])
+        trichuriasis = self.single(data['tt_positive'], data['tt_examined'])
+        hookworm = self.single(data['hk_positive'], data['hk_examined'])
+        helminth = np.where(~np.isnan(ascariasis) & ~np.isnan(trichuriasis) & ~np.isnan(hookworm),
+                            self.geohelminth(ascariasis=ascariasis, trichuriasis=trichuriasis, hookworm=hookworm),
+                            np.nan)
+
+        frame.loc[:, 'hk_prevalence'] = hookworm
+        frame.loc[:, 'asc_prevalence'] = ascariasis
+        frame.loc[:, 'tt_prevalence'] = trichuriasis
+        frame.loc[:, 'sth_prevalence'] = helminth
+
+        return frame

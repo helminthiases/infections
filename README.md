@@ -4,7 +4,7 @@ The Soil Transmitted Helminths Project
 
 <br>
 
-#### Guide Notes
+#### Data Notes
 
 * [data](./data) is the raw data directory.
 * [src](./src) is the directory of programs.
@@ -15,10 +15,25 @@ The countries 'DJ', 'DZ', 'GQ', 'KM', 'NA', and 'YE' do not have any ESPEN exper
 
 #### Development Notes
 
-In order to use Jupyter Lab 3.4.2 disable ``nbclassic``
+Using an Anaconda environment named ``infections``
 
 ````shell
-  jupyter server extension disable nbclassic
+  conda create --prefix ~/infections
+  conda activate infections
+  
+  conda install -c anaconda ...
+                            python==3.8.13
+                            dask
+                            seaborn
+                            geopandas
+                            pywin32 nodejs
+                            jupyterlab
+                            xlrd
+  
+  pip install tensorflow==2.9.1  
+  conda install -c anaconda python-graphviz
+  conda install -c anaconda arviz
+  conda install -c anaconda pytest coverage pytest-cov pylint flake8
 ````
 
 <br>

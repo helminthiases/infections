@@ -1,0 +1,2 @@
+iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn,hk_prevalence,asc_prevalence,tt_prevalence,sth_prevalence
+SDN,SD,,,,el dhayga,,,,99,,,2008,,,157,12,,,157,48,,,157,10,,,1,28830,0.07643312101910828,0.3057324840764331,0.06369426751592357,0.3770173958639361

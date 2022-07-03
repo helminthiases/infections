@@ -1,8 +1,0 @@
-iso3,iso2,admin1_id,admin2_id,iu_id,location,site_id,longitude,latitude,georeliability,location_type,survey_type,year,age_start,age_end,hk_examined,hk_positive,hk_perc_highinfection,hk_perc_moderateinfection,asc_examined,asc_positive,asc_perc_highinfection,asc_perc_moderateinfection,tt_examined,tt_positive,tt_perc_highinfection,tt_perc_moderateinfection,quality,sn
-SYC,SC,4234.0,41228.0,41228.0,a.boileau,16248.0,55.4836699,-4.7110787,3,,,2014,,,33,0,,,33,0,,,33,0,,,1,14240
-SYC,SC,4242.0,41236.0,41236.0,belombre,16249.0,55.4180465,-4.6154269,3,,,2014,,,18,2,,,18,0,,,18,0,,,1,14241
-SYC,SC,4243.0,41237.0,41237.0,cascade,16250.0,55.4972693,-4.6691242,3,,,2014,,,34,0,,,34,0,,,34,2,,,1,14242
-SYC,SC,4248.0,41242.0,41242.0,la digue,16251.0,55.8746256,-4.3262874,1,,,2014,,,22,0,,,22,0,,,22,0,,,1,14243
-SYC,SC,4250.0,41244.0,41244.0,la rosiere,16252.0,55.4496907,-4.620583,3,,,2014,,,42,0,,,42,0,,,42,0,,,1,14244
-SYC,SC,,,,schools across island,,,,99,,,1993,,,1075,68,,,1075,190,,,1075,573,,,3,29371
-SYC,SC,4258.0,41252.0,41252.0,takamaka,16253.0,55.5081012,-4.7843688,1,,,2014,,,52,0,,,52,0,,,52,0,,,1,14245
