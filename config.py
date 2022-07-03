@@ -23,3 +23,13 @@ class Config:
         Fields = collections.namedtuple(typename='Fields', field_names=['experiments', 'countries'])
 
         return Fields._make((experiments, countries))
+
+    @staticmethod
+    def limit():
+        """
+        A pair of geographic coordinates are equivalent if floor(the distance between them) = limit
+
+        :return:
+        """
+
+        return 0
