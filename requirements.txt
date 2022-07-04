@@ -1,6 +1,7 @@
 dask[complete]==2022.5.0
 seaborn==0.11.2
 geopandas==0.9.0
+networkx==2.7.1
 jupyterlab==3.3.2
 pytest==7.1.2
 coverage==6.3.2

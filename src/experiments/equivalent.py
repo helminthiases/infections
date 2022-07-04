@@ -7,8 +7,7 @@ import pandas as pd
 
 class Equivalent:
     """
-    Ensures that only records wherein (a) the number of examinations per disease are equivalent, and (b) the number
-    of cases of a disease does not exceed the number of examinations of the disease  - are retained.
+    Ensures that only records wherein the number of examinations per disease are equivalent are retained.
     """
 
     def __init__(self):

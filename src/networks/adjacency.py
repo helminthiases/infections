@@ -8,7 +8,6 @@ import pathlib
 import sys
 
 import dask
-import geopandas as gpd
 import pandas as pd
 
 
@@ -27,27 +26,28 @@ def read(path: str):
 
 
 @dask.delayed
-def edges(data: pd.DataFrame, limit: float):
+def edges(data: pd.DataFrame, name: str, limit: float):
     """
 
     :param data: An experiments data set
+    :param name: The ISO 3166-1 alpha-2 country code of the experiments data
     :param limit: A pair of points are dissimilar if floor(distance between them) > limit
     :return:
     """
 
-    return src.networks.edges.Edges().exc(data=data, limit=limit)
+    return src.networks.edges.Edges().exc(data=data, name=name, limit=limit)
 
 
 @dask.delayed
-def streams(data, path):
+def graphs(data, name: str):
     """
 
     :param data: The data set, with distance related features, that will be saved.
-    :param path: The storage location.
+    :param name: The ISO 3166-1 alpha-2 country code of the experiments data
     :return:
     """
 
-    return src.functions.streams.Streams().write(data=data, path=path)
+    return src.networks.graphs.Graphs().exc(data=data, name=name)
 
 
 def main():
@@ -58,13 +58,17 @@ def main():
     """
 
     paths = glob.glob(
-        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'equivalent', '*.csv'))
+        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
 
     computations = []
     for path in paths:
-        frame: pd.DataFrame = read(path=path)
-        frame: gpd.GeoDataFrame = edges(data=frame, limit=0)
-        message: str = streams(data=frame, path=os.path.join(storage, pathlib.Path(path).name))
+
+        name = pathlib.Path(path).stem
+
+        frame = read(path=path)
+        frame = edges(data=frame, name=name, limit=config.Config().limit())
+        message = graphs(data=frame, name=name)
+
         computations.append(message)
 
     dask.visualize(computations, filename='data', format='pdf')
@@ -89,14 +93,13 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # custom classes
-    import src.networks.edges
-    import src.functions.streams
+    import config
     import src.functions.directories
+    import src.networks.edges
+    import src.networks.graphs
 
-    # storage
-    storage = os.path.join(root, 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
-    directories = src.functions.directories.Directories()
-    directories.cleanup(path=pathlib.Path(storage).parent.__str__())
-    directories.create(storage)
+    # instances
+    src.functions.directories.Directories().cleanup(
+        path=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks'))
 
     main()
