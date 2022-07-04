@@ -6,16 +6,17 @@ The ESPEN Soil Transmitted Helminths Infections Data
 
 ### Notes
 
-* An API querying program delivers the raw ESPEN soil transmitted helminths infections data 
-  to [data/ESPEN/experiments](./data/ESPEN/experiments); a JSON data file per country.  The countries 
-  ``DJ``, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
+An API querying program delivers the raw ESPEN soil transmitted helminths infections data 
+to [data/ESPEN/experiments](./data/ESPEN/experiments); a JSON data file per country.  The 
+countries ``DJ``, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
   
-* Each JSON data set undergoes the series of steps:
-  
+<br>
+
+Each JSON data set undergoes the series of steps:
 
 <table style="width: 65%; font-size: 65%; text-align: left; margin-left: 65px;">
     <colgroup>
-        <col span="1" style="width: 25%;">
+        <col span="1" style="width: 30%;">
         <col span="1" style="width: 65%;">
         <col span="1" style="width: 5%;">
     </colgroup>
