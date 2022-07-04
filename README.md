@@ -50,9 +50,15 @@ Each JSON data set undergoes the series of steps:
     </tr>
 </table>
 
+<br>
 
+Next, new identification codes for indicating experiments due to the same location. Per country data set, 
+of [reduced](./warehouse/data/ESPEN/experiments/reduced) ...
 
-
+* The eventual output, after geographic co&ouml;rdinates analysis, is [graphs](./warehouse/data/ESPEN/networks/graphs).  Each observation has 
+  a new identification code named ``identifier.``
+  
+<br>
 <br>
 
 ### Development Notes
@@ -85,10 +91,6 @@ To generate the [``pylint``](https://pylint.pycqa.org/en/latest/user_guide/check
 ````shell
 pylint --generate-rcfile > .pylintrc
 ````
-
-<br>
-
-Beware of [numpy axes](https://www.sharpsightlabs.com/blog/numpy-axes-explained/) (cf. pandas axes).
 
 <br>
 <br>
