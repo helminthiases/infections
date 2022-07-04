@@ -20,12 +20,15 @@ Each JSON data set undergoes the series of steps:
         <col span="1" style="width: 65%;">
         <col span="1" style="width: 5%;">
     </colgroup>
+    <thead>
+        <tr><th>action</th><th>comment</th><th><a href="./warehouse/data/ESPEN/experiments">warehouse/<br>data/ESPEN/<br>experiments/</a></th></tr>
+    </thead>
     <tr>
         <td><ul>
             <li><a href="./src/experiments/format.py">formatting</a></li><li><a href="./src/experiments/prevalence.py">add prevalence calculations</a></li>
         </ul></td>
         <td>Prevalence is calculated if, and only if, the number of cases of a disease does not exceed the number of examinations of the disease.</td>
-        <td><a href="./warehouse/data/ESPEN/experiments/baseline">warehouse/data/ESPEN/experiments/baseline</a></td>
+        <td><a href="./warehouse/data/ESPEN/experiments/baseline">baseline</a></td>
     </tr>
     <tr>
         <td><ul>
@@ -33,7 +36,7 @@ Each JSON data set undergoes the series of steps:
         </ul></td>
         <td>Observations that have ``year = {null, 0}`` values are excluded.  Additionally, observations whereby (a) geo-reliability = 99, or (b) either or both 
             level 1 & 2 administrations codes are missing, or (c) either or both geographic coordinate values are missing - are excluded.  Under review.</td>
-        <td><a href="./warehouse/data/ESPEN/experiments/reduced">warehouse/data/ESPEN/experiments/reduced</a></td>
+        <td><a href="./warehouse/data/ESPEN/experiments/reduced">reduced</a></td>
     </tr>
     <tr>
         <td><ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul></td>
