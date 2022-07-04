@@ -52,11 +52,11 @@ Each JSON data set undergoes the series of steps:
 
 <br>
 
-Next, new identification codes for indicating experiments due to the same location. Per country data set, 
-of [reduced](./warehouse/data/ESPEN/experiments/reduced) ...
-
-* The eventual output, after geographic co&ouml;rdinates analysis, is [graphs](./warehouse/data/ESPEN/networks/graphs).  Each observation has 
-  a new identification code named ``identifier.``
+Next, **new identification codes for indicating experiments due to the same location**. Each country data set of 
+[reduced](./warehouse/data/ESPEN/experiments/reduced) undergoes geographic co&ouml;rdinates 
+analysis ([explanatory notes of method](https://colab.research.google.com/github/helminthiases/networks/blob/develop/notebooks/graphs.ipynb#scrollTo=Determining_Equivalent_Geographic_Points)).  The eventual 
+output, per country, is available within [graphs](./warehouse/data/ESPEN/networks/graphs).  Each observation has 
+a new identification code named ``identifier.``
   
 <br>
 <br>
