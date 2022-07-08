@@ -11,6 +11,7 @@ import pandas as pd
 import src.experiments.metric
 import src.experiments.baseline
 import src.experiments.geographical
+import src.experiments.intensity
 import src.experiments.time
 import src.functions.directories
 import src.functions.streams
@@ -81,6 +82,7 @@ class Experiments:
 
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
+        frame = src.experiments.intensity.Intensity().exc(data=frame)
 
         self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
 
