@@ -36,8 +36,12 @@ class Equivalent:
         :return:
         """
 
-        frequencies = self.__frequencies(data=data)
-        frame = data.copy().loc[frequencies, :]
-        frame = pd.DataFrame() if frame.shape[0] < 2 else frame
+        if data.empty:
+            return data
 
-        return frame
+        else:
+            frequencies = self.__frequencies(data=data)
+            frame = data.copy().loc[frequencies, :]
+            frame = pd.DataFrame() if frame.shape[0] < 2 else frame
+
+            return frame
