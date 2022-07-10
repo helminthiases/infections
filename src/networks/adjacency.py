@@ -99,7 +99,9 @@ if __name__ == '__main__':
     import src.networks.graphs
 
     # instances
-    src.functions.directories.Directories().cleanup(
-        path=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks'))
+    directories = src.functions.directories.Directories()
+    storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks')
+    directories.cleanup(path=os.path.join(storage, 'edges'))
+    directories.cleanup(path=os.path.join(storage, 'graphs'))
 
     main()
