@@ -1,6 +1,7 @@
 """
 Module: inspect
 """
+import numpy as np
 import pandas as pd
 
 import config
@@ -34,6 +35,15 @@ class Format:
         return frame.loc[:, self.fields]
 
     @staticmethod
+    def __year(data: pd.DataFrame) -> pd.DataFrame:
+
+        frame = data.copy()
+        condition = frame['year'] == 0
+        frame.loc[condition, 'year'] = np.NAN
+
+        return frame
+
+    @staticmethod
     def __text(data: pd.DataFrame):
         """
 
@@ -61,5 +71,6 @@ class Format:
 
         frame = self.__title(data=data)
         frame = self.__text(data=frame)
+        frame = self.__year(data=frame)
 
         return frame
