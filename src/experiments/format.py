@@ -25,6 +25,11 @@ class Format:
         self.rename = {'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'}
 
     def __title(self, data: pd.DataFrame):
+        """
+
+        :param data: An ESPEN STH experiments data set
+        :return:
+        """
 
         frame = data.copy()
 
@@ -36,6 +41,12 @@ class Format:
 
     @staticmethod
     def __year(data: pd.DataFrame) -> pd.DataFrame:
+        """
+        If the <year> field value is zero, replace zero with NaN
+
+        :param data: An ESPEN STH experiments data set
+        :return:
+        """
 
         frame = data.copy()
         condition = frame['year'] == 0
@@ -47,7 +58,7 @@ class Format:
     def __text(data: pd.DataFrame):
         """
 
-        :param data:
+        :param data: An ESPEN STH experiments data set
         :return:
         """
 
@@ -65,7 +76,7 @@ class Format:
     def exc(self, data: pd.DataFrame):
         """
 
-        :param data:
+        :param data: An ESPEN STH experiments data set
         :return:
         """
 
