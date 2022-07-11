@@ -64,8 +64,13 @@ class Geographical:
         :return:
         """
 
+        # Missing administration level codes shouldn't matter; the values can be obtained
+        # from appropriate gazetteers.
+        # frame = self.__geo(data=data)
+        # frame = self.__administrations(data=frame)
+        # frame = self.__coordinates(data=frame)
+
         frame = self.__geo(data=data)
-        frame = self.__administrations(data=frame)
         frame = self.__coordinates(data=frame)
 
         return frame

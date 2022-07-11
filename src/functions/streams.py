@@ -1,6 +1,7 @@
 """
 Module: streams
 """
+import csv
 import pathlib
 
 import pandas as pd
@@ -31,7 +32,8 @@ class Streams:
             return f'{name}: empty'
 
         try:
-            data.to_csv(path_or_buf=path, index=False, header=True, encoding='utf-8')
+            data.to_csv(path_or_buf=path, index=False, header=True, encoding='utf-8',
+                        quoting=csv.QUOTE_NONNUMERIC)
             return f'{name}: succeeded'
         except OSError as err:
             raise Exception(err.strerror) from err
