@@ -57,6 +57,8 @@ def main():
     :return:
     """
 
+    # The edges data sets depend on the ESPEN/experiments/reduced/*.csv data sets.
+    # 
     paths = glob.glob(
         pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
 
