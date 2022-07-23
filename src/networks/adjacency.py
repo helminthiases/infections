@@ -58,7 +58,7 @@ def main():
     """
 
     # The edges data sets depend on the ESPEN/experiments/reduced/*.csv data sets.
-    # 
+    # The graphs depend on the edges.
     paths = glob.glob(
         pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
 
@@ -66,11 +66,9 @@ def main():
     for path in paths:
 
         name = pathlib.Path(path).stem
-
         frame = read(path=path)
         frame = edges(data=frame, name=name, limit=config.Config().limit())
         message = graphs(data=frame, name=name)
-
         computations.append(message)
 
     dask.visualize(computations, filename='data', format='pdf')
