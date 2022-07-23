@@ -61,6 +61,16 @@ a new identification code named ``identifier.``
 <br>
 <br>
 
+### References
+
+* [ESPEN](https://espen.afro.who.int/)
+  * [ESPEN Cartography Database](https://espen.afro.who.int/tools-resources/cartography-database)
+  * [ESPEN API](https://admin.espen.afro.who.int/docs/api)
+  * [ESPEN API Documentation](https://espen.stoplight.io)
+
+<br>
+<br>
+
 <br>
 <br>
 
