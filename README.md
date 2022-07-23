@@ -34,8 +34,8 @@ Each JSON data set undergoes the series of steps:
         <td><ul>
             <li><a href="./src/experiments/time.py">inspect time/year values</a></li><li><a href="./src/experiments/geographical.py">inspect geographic values</a></li>
         </ul></td>
-        <td>Observations that have ``year = {null, 0}`` values are excluded.  Additionally, observations whereby (a) geo-reliability = 99, or (b) either or both 
-            level 1 & 2 administrations codes are missing, or (c) either or both geographic coordinate values are missing - are excluded.  Under review.</td>
+        <td>Observations that have ``year = {null, 0}`` values are excluded.  Additionally, observations whereby (a) geo-reliability = 99, or 
+            (b) either/both geographic co&ouml;rdinate values are missing - are excluded.</td>
         <td><a href="./warehouse/data/ESPEN/experiments/reduced">reduced</a></td>
     </tr>
     <tr>
