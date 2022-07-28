@@ -33,7 +33,7 @@ class Experiments:
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
         directories = src.functions.directories.Directories()
         directories.cleanup(self.storage)
-        for directory in ['baseline', 'deduplicates', 'reduced', 'plausible', 'equivalent']:
+        for directory in ['baseline', 'reduced', 'plausible', 'equivalent']:
             directories.create(os.path.join(self.storage, directory))
 
     @staticmethod
@@ -83,7 +83,7 @@ class Experiments:
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
         frame = src.experiments.drop.Drop().exc(data=frame)
-        frame.drop(columns='location', inplace=True)
+        
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
