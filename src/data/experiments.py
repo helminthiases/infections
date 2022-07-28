@@ -83,13 +83,17 @@ class Experiments:
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
         frame = src.experiments.drop.Drop().exc(data=frame)
-        frame = src.experiments.deduplicate.Deduplicate(
-            path=os.path.join(self.storage, 'deduplicates')).exc(data=frame)
-        frame = pd.DataFrame() if frame.shape[0] < 2 else frame
+        print(f'{name}: {frame.shape[0]}')
 
-        self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
+        if frame.shape[0] < 2:
+            instances = pd.DataFrame()
+        else:
+            instances = src.experiments.deduplicate.Deduplicate(
+                path=os.path.join(self.storage, 'deduplicates')).exc(data=frame)
 
-        return frame
+        self.streams.write(data=instances, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
+
+        return instances
 
     @dask.delayed
     def __metric(self, data: pd.DataFrame, name: str):
