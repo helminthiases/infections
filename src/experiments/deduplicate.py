@@ -54,7 +54,6 @@ class Deduplicate:
         """
 
         :param data:
-        :param name:
         :return:
         """
 
