@@ -4,7 +4,7 @@ Module: intensity
 import pandas as pd
 
 
-class Intensity:
+class Drop:
     """
     Drops the intensity related fields
     """
