@@ -35,7 +35,7 @@ def edges(data: pd.DataFrame, name: str, limit: float):
     :return:
     """
 
-    directory = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
+    directory = os.path.join(storage, 'edges')
 
     return src.networks.edges.Edges(directory=directory).exc(data=data, name=name, limit=limit)
 
@@ -49,7 +49,7 @@ def graphs(data, name: str):
     :return:
     """
 
-    directory = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'graphs')
+    directory = os.path.join(storage, 'graphs')
 
     return src.networks.graphs.Graphs(directory=directory).exc(data=data, name=name)
 
@@ -105,7 +105,11 @@ if __name__ == '__main__':
     # instances
     directories = src.functions.directories.Directories()
     storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks')
-    directories.cleanup(path=os.path.join(storage, 'edges'))
-    directories.cleanup(path=os.path.join(storage, 'graphs'))
+
+    for basename in ['edges', 'graphs']:
+        directories.cleanup(path=os.path.join(storage, basename))
+
+    for basename in ['edges', 'graphs']:
+        directories.create(os.path.join(storage, basename))
 
     main()
