@@ -10,9 +10,10 @@ import pandas as pd
 
 import src.experiments.metric
 import src.experiments.baseline
+import src.experiments.time
 import src.experiments.geographical
 import src.experiments.drop
-import src.experiments.time
+import src.experiments.deduplicate
 import src.functions.directories
 import src.functions.streams
 
@@ -66,7 +67,6 @@ class Experiments:
             return data
 
         frame = src.experiments.baseline.Baseline().exc(data=data)
-
         self.streams.write(data=frame, path=os.path.join(self.storage, 'baseline', f'{name}.csv'))
 
         return frame
@@ -83,7 +83,8 @@ class Experiments:
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
         frame = src.experiments.drop.Drop().exc(data=frame)
-
+        frame = src.experiments.deduplicate.Deduplicate(
+            path=os.path.join(self.storage, 'deduplicates')).exc(data=frame)
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
