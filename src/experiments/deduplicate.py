@@ -46,7 +46,7 @@ class Deduplicate:
         exclude = frequencies.loc[frequencies['N'] > 1, 'identifier'].values
 
         # excluding
-        frame = data.copy().loc[data['identifier'].isin(exclude), :]
+        frame = data.copy().loc[~data['identifier'].isin(exclude), :]
 
         return frame
 
