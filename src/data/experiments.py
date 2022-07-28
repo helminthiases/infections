@@ -11,7 +11,7 @@ import pandas as pd
 import src.experiments.metric
 import src.experiments.baseline
 import src.experiments.geographical
-import src.experiments.intensity
+import src.experiments.drop
 import src.experiments.time
 import src.functions.directories
 import src.functions.streams
@@ -24,7 +24,6 @@ class Experiments:
 
     def __init__(self):
         """
-
         """
 
         # Reading and writing
@@ -32,9 +31,10 @@ class Experiments:
 
         # The storage area of the countries file
         self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments')
-        src.functions.directories.Directories().cleanup(self.storage)
-        for directory in ['baseline', 'reduced', 'plausible', 'equivalent']:
-            src.functions.directories.Directories().create(os.path.join(self.storage, directory))
+        directories = src.functions.directories.Directories()
+        directories.cleanup(self.storage)
+        for directory in ['baseline', 'deduplicates', 'reduced', 'plausible', 'equivalent']:
+            directories.create(os.path.join(self.storage, directory))
 
     @staticmethod
     @dask.delayed
@@ -82,7 +82,7 @@ class Experiments:
 
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
-        frame: pd.DataFrame = src.experiments.intensity.Intensity().exc(data=frame)
+        frame = src.experiments.drop.Drop().exc(data=frame)
         frame.drop(columns='location', inplace=True)
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
@@ -118,12 +118,10 @@ class Experiments:
         computations = []
         for path in paths:
             name = pathlib.Path(path).stem
-
             frame = self.__read(uri=path)
             frame = self.__baseline(data=frame, name=name)
             frame = self.__reduce(data=frame, name=name)
             message = self.__metric(data=frame, name=name)
-
             computations.append(message)
 
         dask.visualize(computations, filename='data', format='pdf')
