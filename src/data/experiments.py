@@ -83,7 +83,7 @@ class Experiments:
         frame = src.experiments.time.Time().exc(data=data)
         frame = src.experiments.geographical.Geographical().exc(data=frame)
         frame = src.experiments.drop.Drop().exc(data=frame)
-        
+
         frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
         self.streams.write(data=frame, path=os.path.join(self.storage, 'reduced', f'{name}.csv'))
