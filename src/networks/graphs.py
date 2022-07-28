@@ -16,15 +16,15 @@ class Graphs:
     Graphs of geographic coordinates
     """
 
-    def __init__(self):
+    def __init__(self, directory: str):
         """
 
         """
 
         # storage
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'graphs')
+        self.directory = directory
         directories = src.functions.directories.Directories()
-        directories.create(self.storage)
+        directories.create(self.directory)
 
     @staticmethod
     def __identifiers(components: list) -> pd.DataFrame:
@@ -51,7 +51,7 @@ class Graphs:
         :return:
         """
 
-        path = os.path.join(self.storage, f'{name}.csv')
+        path = os.path.join(self.directory, f'{name}.csv')
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
