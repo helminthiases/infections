@@ -35,7 +35,9 @@ def edges(data: pd.DataFrame, name: str, limit: float):
     :return:
     """
 
-    return src.networks.edges.Edges().exc(data=data, name=name, limit=limit)
+    directory = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
+
+    return src.networks.edges.Edges(directory=directory).exc(data=data, name=name, limit=limit)
 
 
 @dask.delayed
@@ -47,7 +49,9 @@ def graphs(data, name: str):
     :return:
     """
 
-    return src.networks.graphs.Graphs().exc(data=data, name=name)
+    directory = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'graphs')
+
+    return src.networks.graphs.Graphs(directory=directory).exc(data=data, name=name)
 
 
 def main():
