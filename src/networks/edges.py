@@ -16,15 +16,15 @@ class Edges:
     Nearest point calculations
     """
 
-    def __init__(self):
+    def __init__(self, directory: str):
         """
 
         """
 
-        # storage
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
+        # directory
+        self.directory = directory
         directories = src.functions.directories.Directories()
-        directories.create(self.storage)
+        directories.create(self.directory)
 
     @staticmethod
     def __distances(data: gpd.GeoDataFrame):
@@ -72,7 +72,7 @@ class Edges:
         :return:
         """
 
-        path = os.path.join(self.storage, f'{name}.csv')
+        path = os.path.join(self.directory, f'{name}.csv')
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
