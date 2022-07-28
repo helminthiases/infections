@@ -119,7 +119,6 @@ class Experiments:
         """
 
         paths = glob.glob(os.path.join(os.getcwd(), 'data', 'ESPEN', 'experiments', '*.json'))
-
         computations = []
         for path in paths:
             name = pathlib.Path(path).stem
