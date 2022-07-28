@@ -23,8 +23,6 @@ class Graphs:
 
         # storage
         self.directory = directory
-        directories = src.functions.directories.Directories()
-        directories.create(self.directory)
 
     @staticmethod
     def __identifiers(components: list) -> pd.DataFrame:
