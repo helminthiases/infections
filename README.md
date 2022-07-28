@@ -32,10 +32,16 @@ Each JSON data set undergoes the series of steps:
     </tr>
     <tr>
         <td><ul>
-            <li><a href="./src/experiments/time.py">inspect time/year values</a></li><li><a href="./src/experiments/geographical.py">inspect geographic values</a></li>
+            <li><a href="./src/experiments/time.py">inspect time/year values</a></li>
+            <li><a href="./src/experiments/geographical.py">inspect geographic values</a></li>
+            <li><a href="./src/experiments/deduplicate.py">deduplicate</a></li>
         </ul></td>
-        <td>Observations that have ``year = {null, 0}`` values are excluded.  Additionally, observations whereby (a) geo-reliability = 99, or 
-            (b) either/both geographic co&ouml;rdinate values are missing - are excluded.</td>
+        <td>Observations that have <code>year = {null, 0}</code> values are excluded.  Additionally, observations whereby (a) geo-reliability = 99, or 
+            (b) either/both geographic co&ouml;rdinate values are missing - are excluded. <br><br>There are cases whereby an experiment site has duplicate 
+            records during the same year, e.g., replicates, or reference co&ouml;rdinates that differ by fractions of a metre.  
+            <a href="./src/experiments/deduplicate.py">deduplicate.py</a> addresses this problem via <b>new identification codes for indicating 
+            experiments due to the same location</b>; this <a href="https://colab.research.google.com/github/helminthiases/networks/blob/develop/notebooks/graphs.ipynb#scrollTo=Determining_Equivalent_Geographic_Points">vignette</a> 
+            illustrates the approach.  A field named <code>identifier</code> hosts the new identification codes.  Subsequently, deduplication.</td>
         <td><a href="./warehouse/data/ESPEN/experiments/reduced">reduced</a></td>
     </tr>
     <tr>
@@ -49,14 +55,6 @@ Each JSON data set undergoes the series of steps:
         <td></td>
     </tr>
 </table>
-
-<br>
-
-Next, **new identification codes for indicating experiments due to the same location**. Each country data set of 
-[reduced](./warehouse/data/ESPEN/experiments/reduced) undergoes geographic co&ouml;rdinates 
-analysis ([explanatory notes of method](https://colab.research.google.com/github/helminthiases/networks/blob/develop/notebooks/graphs.ipynb#scrollTo=Determining_Equivalent_Geographic_Points)).  The eventual 
-output, per country, is available within [graphs](./warehouse/data/ESPEN/networks/graphs).  Each observation has 
-a new identification code named ``identifier.``
 
 <br>
 <br>
