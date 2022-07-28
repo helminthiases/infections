@@ -23,8 +23,6 @@ class Edges:
 
         # directory
         self.directory = directory
-        directories = src.functions.directories.Directories()
-        directories.create(self.directory)
 
     @staticmethod
     def __distances(data: gpd.GeoDataFrame):
