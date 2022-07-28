@@ -61,10 +61,10 @@ def main():
     :return:
     """
 
-    # The edges data sets depend on the ESPEN/experiments/reduced/*.csv data sets.
+    # The edges data sets depend on the ESPEN/experiments/baseline/*.csv data sets.
     # The graphs depend on the edges.
     paths = glob.glob(
-        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
+        pathname=os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'experiments', 'baseline', '*.csv'))
 
     computations = []
     for path in paths:
