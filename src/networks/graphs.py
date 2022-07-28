@@ -16,15 +16,13 @@ class Graphs:
     Graphs of geographic coordinates
     """
 
-    def __init__(self):
+    def __init__(self, directory: str):
         """
 
         """
 
         # storage
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'graphs')
-        directories = src.functions.directories.Directories()
-        directories.create(self.storage)
+        self.directory = directory
 
     @staticmethod
     def __identifiers(components: list) -> pd.DataFrame:
@@ -51,15 +49,14 @@ class Graphs:
         :return:
         """
 
-        path = os.path.join(self.storage, f'{name}.csv')
+        path = os.path.join(self.directory, f'{name}.csv')
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
-    def exc(self, data: pd.DataFrame, name: str):
+    def partial(self, data: pd.DataFrame):
         """
 
-        :param data: An experiments data set
-        :param name: The ISO 3166-1 alpha-2 country code of the experiments data
+        :param data:
         :return:
         """
 
@@ -70,6 +67,19 @@ class Graphs:
         # hence, the new identification codes
         frame = self.__identifiers(components=components)
         frame = data.copy().merge(frame.copy(), on='id', how='left')
+
+        return frame
+
+    def exc(self, data: pd.DataFrame, name: str):
+        """
+
+        :param data: An experiments data set
+        :param name: The ISO 3166-1 alpha-2 country code of the experiments data
+        :return:
+        """
+
+        # calculations
+        frame = self.partial(data=data)
 
         # preserve
         message = self.__write(data=frame, name=name)

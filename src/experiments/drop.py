@@ -4,7 +4,7 @@ Module: intensity
 import pandas as pd
 
 
-class Intensity:
+class Drop:
     """
     Drops the intensity related fields
     """
@@ -16,7 +16,7 @@ class Intensity:
 
         self.fields = ['hk_perc_highinfection', 'hk_perc_moderateinfection',
                        'asc_perc_highinfection', 'asc_perc_moderateinfection',
-                       'tt_perc_highinfection', 'tt_perc_moderateinfection']
+                       'tt_perc_highinfection', 'tt_perc_moderateinfection', 'location']
 
     def __drop(self, data: pd.DataFrame):
         """

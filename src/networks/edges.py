@@ -16,15 +16,13 @@ class Edges:
     Nearest point calculations
     """
 
-    def __init__(self):
+    def __init__(self, directory: str):
         """
 
         """
 
-        # storage
-        self.storage = os.path.join(os.getcwd(), 'warehouse', 'data', 'ESPEN', 'networks', 'edges')
-        directories = src.functions.directories.Directories()
-        directories.create(self.storage)
+        # directory
+        self.directory = directory
 
     @staticmethod
     def __distances(data: gpd.GeoDataFrame):
@@ -72,18 +70,11 @@ class Edges:
         :return:
         """
 
-        path = os.path.join(self.storage, f'{name}.csv')
+        path = os.path.join(self.directory, f'{name}.csv')
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
-    def exc(self, data: pd.DataFrame, name: str, limit: float) -> pd.DataFrame:
-        """
-
-        :param data: An experiments data set
-        :param name: The ISO 3166-1 alpha-2 country code of the experiments data
-        :param limit: A pair of points are dissimilar if floor(the distance between them) > limit
-        :return:
-        """
+    def partial(self, data: pd.DataFrame, limit: float):
 
         # converting the data frame to a geographic data frame
         frame = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(x=data.longitude, y=data.latitude))
@@ -96,6 +87,22 @@ class Edges:
 
         # preserve
         frame.drop(columns=['geometry'], inplace=True)
+
+        return frame
+
+    def exc(self, data: pd.DataFrame, name: str, limit: float) -> pd.DataFrame:
+        """
+
+        :param data: An experiments data set
+        :param name: The ISO 3166-1 alpha-2 country code of the experiments data
+        :param limit: A pair of points are dissimilar if floor(the distance between them) > limit
+        :return:
+        """
+
+        # calculations
+        frame = self.partial(data=data, limit=limit)
+
+        # preserve
         self.__write(data=frame, name=name)
 
         return frame
