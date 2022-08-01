@@ -1,5 +1,5 @@
 """
-Module: measures
+Module: plausible
 """
 import pandas as pd
 
@@ -16,7 +16,7 @@ class Plausible:
 
         self.fields = ['asc_prevalence', 'tt_prevalence', 'hk_prevalence']
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
