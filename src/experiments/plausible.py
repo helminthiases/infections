@@ -26,9 +26,8 @@ class Plausible:
         if data.empty:
             return data
 
-        else:
-            condition = data[self.fields].notna().all(axis=1)
-            frame = data.copy().loc[condition, :]
-            frame = pd.DataFrame() if frame.shape[0] < 2 else frame
+        condition = data[self.fields].notna().all(axis=1)
+        frame = data.copy().loc[condition, :]
+        frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
-            return frame
+        return frame
