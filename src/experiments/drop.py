@@ -6,7 +6,7 @@ import pandas as pd
 
 class Drop:
     """
-    Drops the intensity related fields
+    Drops irrelevant fields; irrelevant to the project, or flawed.
     """
 
     def __init__(self):
@@ -18,7 +18,7 @@ class Drop:
                        'asc_perc_highinfection', 'asc_perc_moderateinfection',
                        'tt_perc_highinfection', 'tt_perc_moderateinfection', 'location']
 
-    def __drop(self, data: pd.DataFrame):
+    def __drop(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An experiments data frame
@@ -29,7 +29,7 @@ class Drop:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An experiments data frame
