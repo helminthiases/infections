@@ -15,7 +15,7 @@ class Time:
         """
 
     @staticmethod
-    def __year(data: pd.DataFrame):
+    def __year(data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An experiments data frame
@@ -26,7 +26,7 @@ class Time:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An experiments data frame
