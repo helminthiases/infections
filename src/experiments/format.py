@@ -36,7 +36,7 @@ class Format:
         # Ensure that each field's name is lower-cased & in-line with naming patterns. Inspect.
         frame.rename(mapper=str.lower, axis='columns', inplace=True)
         frame.rename(columns=self.rename, inplace=True)
-        
+
         return frame.loc[:, self.fields]
 
     @staticmethod
