@@ -24,7 +24,7 @@ class Format:
         # Address the field names discrepancies
         self.rename = {'admin1_code': 'admin1_id', 'admin2_code': 'admin2_id', 'siteid': 'site_id'}
 
-    def __title(self, data: pd.DataFrame):
+    def __title(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An ESPEN STH experiments data set
@@ -55,7 +55,7 @@ class Format:
         return frame
 
     @staticmethod
-    def __text(data: pd.DataFrame):
+    def __text(data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An ESPEN STH experiments data set
@@ -73,7 +73,7 @@ class Format:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: An ESPEN STH experiments data set
