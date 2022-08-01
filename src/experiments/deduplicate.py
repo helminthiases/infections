@@ -1,15 +1,15 @@
 """
 Module: deduplicate
 """
-import os
-import pandas as pd
 import collections
+import os
+
+import pandas as pd
 
 import config
-
+import src.functions.directories
 import src.networks.edges
 import src.networks.graphs
-import src.functions.directories
 
 
 class Deduplicate:
