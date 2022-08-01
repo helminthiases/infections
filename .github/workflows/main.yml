@@ -40,6 +40,9 @@ jobs:
           echo "src/functions"
           flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/functions
 
+          echo "src/experiments"
+          flake8 --count --select E9,F63,F7,F82 --show-source --statistics src/experiments
+
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           printf "\n"
           echo "Complexity issues:"
@@ -49,6 +52,9 @@ jobs:
 
           echo "src/functions"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/functions
+
+          echo "src/experiments"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/experiments
 
       - name: Lint with pylint
         run: |
@@ -64,6 +70,9 @@ jobs:
 
           printf "\n Package src/functions"
           pylint --rcfile .pylintrc src/functions
+
+          printf "\n Package src/experiments"
+          pylint --rcfile .pylintrc src/experiments
 
       - name: Test with pytest
         run: |
