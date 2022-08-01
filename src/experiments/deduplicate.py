@@ -1,3 +1,6 @@
+"""
+Module: deduplicate
+"""
 import os
 import pandas as pd
 import collections
@@ -10,6 +13,9 @@ import src.functions.directories
 
 
 class Deduplicate:
+    """
+    Excludes sites that have more than one record during the same year
+    """
 
     def __init__(self, path: str):
         """
@@ -50,7 +56,7 @@ class Deduplicate:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
