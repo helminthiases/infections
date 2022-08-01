@@ -1,15 +1,21 @@
-import os
-import pandas as pd
+"""
+Module: deduplicate
+"""
 import collections
+import os
+
+import pandas as pd
 
 import config
-
+import src.functions.directories
 import src.networks.edges
 import src.networks.graphs
-import src.functions.directories
 
 
 class Deduplicate:
+    """
+    Excludes sites that have more than one record during the same year
+    """
 
     def __init__(self, path: str):
         """
@@ -50,7 +56,7 @@ class Deduplicate:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:

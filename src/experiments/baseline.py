@@ -26,7 +26,7 @@ class Baseline:
         self.format = src.experiments.format.Format()
         self.prevalence = src.experiments.prevalence.Prevalence()
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data: an experiments data set

@@ -16,7 +16,7 @@ class Prevalence:
         """
 
     @staticmethod
-    def single(positive: pd.Series, examined: pd.Series):
+    def single(positive: pd.Series, examined: pd.Series) -> np.ndarray:
         """
 
         :param positive: positive cases amongst examinations

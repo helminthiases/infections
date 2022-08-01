@@ -1,5 +1,5 @@
 """
-Module: measures
+Module: plausible
 """
 import pandas as pd
 
@@ -16,7 +16,7 @@ class Plausible:
 
         self.fields = ['asc_prevalence', 'tt_prevalence', 'hk_prevalence']
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
@@ -26,9 +26,8 @@ class Plausible:
         if data.empty:
             return data
 
-        else:
-            condition = data[self.fields].notna().all(axis=1)
-            frame = data.copy().loc[condition, :]
-            frame = pd.DataFrame() if frame.shape[0] < 2 else frame
+        condition = data[self.fields].notna().all(axis=1)
+        frame = data.copy().loc[condition, :]
+        frame = pd.DataFrame() if frame.shape[0] < 2 else frame
 
-            return frame
+        return frame
