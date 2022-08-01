@@ -28,7 +28,7 @@ class Geographical:
         return frame
 
     @staticmethod
-    def __administrations(data: pd.DataFrame):
+    def __administrations(data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
@@ -43,7 +43,7 @@ class Geographical:
         return frame
 
     @staticmethod
-    def __coordinates(data: pd.DataFrame):
+    def __coordinates(data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
@@ -57,7 +57,7 @@ class Geographical:
 
         return frame
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
