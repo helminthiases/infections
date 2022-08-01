@@ -27,20 +27,20 @@ class Geographical:
 
         return frame
 
-    @staticmethod
-    def __administrations(data: pd.DataFrame) -> pd.DataFrame:
-        """
-
-        :param data:
-        :return:
-        """
-
-        # The cases whereby the codes of both administrative levels - levels 1 & 2 - are present
-        condition = data[['admin1_id', 'admin2_id']].notna()
-        condition = condition.all(axis=1)
-        frame = data.copy().loc[condition, :]
-
-        return frame
+    # @staticmethod
+    # def __administrations(data: pd.DataFrame) -> pd.DataFrame:
+    #     """
+    #
+    #     :param data:
+    #     :return:
+    #     """
+    #
+    #     # The cases whereby the codes of both administrative levels - levels 1 & 2 - are present
+    #     condition = data[['admin1_id', 'admin2_id']].notna()
+    #     condition = condition.all(axis=1)
+    #     frame = data.copy().loc[condition, :]
+    #
+    #     return frame
 
     @staticmethod
     def __coordinates(data: pd.DataFrame) -> pd.DataFrame:
@@ -63,12 +63,6 @@ class Geographical:
         :param data:
         :return:
         """
-
-        # Missing administration level codes shouldn't matter; the values can be obtained
-        # from appropriate gazetteers.
-        # frame = self.__geo(data=data)
-        # frame = self.__administrations(data=frame)
-        # frame = self.__coordinates(data=frame)
 
         frame = self.__geo(data=data)
         frame = self.__coordinates(data=frame)
