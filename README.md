@@ -2,6 +2,12 @@
 
 The ESPEN Soil Transmitted Helminths Infections Data
 
+_Develop_<br>
+[![Soil Transmitted Helminths Project](https://github.com/helminthiases/infections/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/helminthiases/infections/actions/workflows/main.yml)
+
+_Master_<br>
+[![Soil Transmitted Helminths Project](https://github.com/helminthiases/infections/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/helminthiases/infections/actions/workflows/main.yml)
+
 <br>
 
 ### Notes
