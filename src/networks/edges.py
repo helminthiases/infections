@@ -36,12 +36,13 @@ class Edges:
         distances = data.geometry.apply(lambda x: data.distance(x)).values
 
         # disable the diagonal
-        np.fill_diagonal(distances, np.nan)
+        points = np.diag_indices_from(distances)
+        distances[points] = np.nan
 
         # hence, determine the closest observation to each observation
         frame = data.copy()
         frame.loc[:, 'shortest'] = np.nanmin(a=distances, axis=1)
-        frame.loc[:, 'id'] = frame.copy().index.values
+        frame.loc[:, 'id'] = np.arange(frame.shape[0])
         frame.loc[:, 'src'] = frame['id'].values
         frame.loc[:, 'dst'] = np.nanargmin(a=distances, axis=1)
 
@@ -57,7 +58,7 @@ class Edges:
 
         frame = data.copy()
 
-        condition = (frame['shortest'].floordiv(1) > limit)
+        condition = (frame['shortest'] // 1).astype(int) > 0
         frame.loc[condition, 'dst'] = frame.loc[condition, 'src']
 
         return frame
