@@ -39,7 +39,7 @@ class Experiments:
 
     @staticmethod
     @dask.delayed
-    def __read(uri: str):
+    def __read(uri: str) -> pd.DataFrame:
         """
         Reads ESPEN STH experiments data
 
@@ -55,7 +55,7 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __baseline(self, data: pd.DataFrame, name: str):
+    def __baseline(self, data: pd.DataFrame, name: str) -> pd.DataFrame:
         """
 
         :param data:
@@ -72,7 +72,7 @@ class Experiments:
         return frame
 
     @dask.delayed
-    def __reduce(self, data: pd.DataFrame, name: str):
+    def __reduce(self, data: pd.DataFrame, name: str) -> pd.DataFrame:
         """
 
         :param data:
@@ -96,7 +96,7 @@ class Experiments:
         return instances
 
     @dask.delayed
-    def __metric(self, data: pd.DataFrame, name: str):
+    def __metric(self, data: pd.DataFrame, name: str) -> str:
         """
 
         :param data:

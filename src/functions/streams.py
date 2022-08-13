@@ -18,7 +18,7 @@ class Streams:
         """
 
     @staticmethod
-    def write(data: pd.DataFrame, path: str):
+    def write(data: pd.DataFrame, path: str) -> str:
         """
 
         :param data:
