@@ -41,7 +41,7 @@ class Graphs:
 
         return frame
 
-    def __write(self, data: pd.DataFrame, name: str):
+    def __write(self, data: pd.DataFrame, name: str) -> str:
         """
 
         :param data: The data set, with distance related features, that will be saved.
@@ -53,7 +53,7 @@ class Graphs:
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
-    def partial(self, data: pd.DataFrame):
+    def partial(self, data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :param data:
@@ -70,7 +70,7 @@ class Graphs:
 
         return frame
 
-    def exc(self, data: pd.DataFrame, name: str):
+    def exc(self, data: pd.DataFrame, name: str) -> str:
         """
 
         :param data: An experiments data set
