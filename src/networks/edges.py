@@ -25,7 +25,7 @@ class Edges:
         self.directory = directory
 
     @staticmethod
-    def __distances(data: gpd.GeoDataFrame):
+    def __distances(data: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         """
 
         :param data:
@@ -49,7 +49,7 @@ class Edges:
         return frame
 
     @staticmethod
-    def __dissimilar(data: gpd.GeoDataFrame, limit: float):
+    def __dissimilar(data: gpd.GeoDataFrame, limit: float) -> gpd.GeoDataFrame:
         """
 
         :param data:
@@ -58,12 +58,12 @@ class Edges:
 
         frame = data.copy()
 
-        condition = (frame['shortest'] // 1).astype(int) > 0
+        condition = (frame['shortest'] // 1).astype(int) > limit
         frame.loc[condition, 'dst'] = frame.loc[condition, 'src']
 
         return frame
 
-    def __write(self, data: pd.DataFrame, name: str):
+    def __write(self, data: pd.DataFrame, name: str) -> str:
         """
 
         :param data: The data set, with distance related features, that will be saved.
@@ -75,7 +75,7 @@ class Edges:
 
         return src.functions.streams.Streams().write(data=data, path=path)
 
-    def partial(self, data: pd.DataFrame, limit: float):
+    def partial(self, data: pd.DataFrame, limit: float) -> pd.DataFrame:
 
         # converting the data frame to a geographic data frame
         frame = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(x=data.longitude, y=data.latitude))
