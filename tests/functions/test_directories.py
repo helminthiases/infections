@@ -17,8 +17,8 @@ class TestDirectories:
 
     def test_create(self, directories, path):
         directories.create(path=path)
-        assert os.path.exists(path=path)
+        assert os.path.exists(path=path), f'Unable to create directory {path}'
 
     def test_cleanup(self, directories, path):
         directories.cleanup(path=path)
-        assert not os.path.exists(path=path)
+        assert not os.path.exists(path=path), f'Unable to delete directory {path}'
