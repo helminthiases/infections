@@ -11,4 +11,4 @@ class TestCountries:
 
     def test_exc(self, countries):
         message = countries.exc()
-        assert message.startswith('The countries gazetteer')
+        assert message.startswith('The countries gazetteer'), 'Unable to create a countries gazetteer'
