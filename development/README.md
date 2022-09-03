@@ -59,7 +59,7 @@ python -m pytest ...
 &nbsp; &nbsp; **PyTest & Coverage**
 
 ```shell
-python -m pytest --cov src/data tests/data
+python -m pytest --cov-report term-missing --cov src/data tests/data
 ```
 
 <br>
