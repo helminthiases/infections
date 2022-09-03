@@ -33,7 +33,8 @@ Each JSON data set undergoes the series of steps:
         <td><ul>
             <li><a href="./src/experiments/format.py">formatting</a></li><li><a href="./src/experiments/prevalence.py">add prevalence calculations</a></li>
         </ul></td>
-        <td>Prevalence is calculated if, and only if, the number of cases of a disease does not exceed the number of examinations of the disease.</td>
+        <td>Prevalence is calculated if, and only if, (a) the number of cases of a disease does not exceed the number of examinations of 
+            the disease. and (b) the number of examinations is greater than zero.</td>
         <td><a href="./warehouse/data/ESPEN/experiments/baseline">baseline</a></td>
     </tr>
     <tr>
