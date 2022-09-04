@@ -28,7 +28,7 @@ def main():
     files = glob.glob(pathname=os.path.join(root, 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
     elements = [file.split('helminthiases', 1)[1] for file in files]
     elements = [element.replace('\\', '/') for element in elements]
-    elements = [hub + element for element in elements]
+    elements = [HUB + element for element in elements]
 
     data = pd.DataFrame(data={'path': elements})
     data.to_csv(path_or_buf=os.path.join(root, 'warehouse', 'data', 'ESPEN', 'experiments', 'data.csv'),
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     root = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
-    hub = 'https://raw.githubusercontent.com/helminthiases'
+    HUB = 'https://raw.githubusercontent.com/helminthiases'
 
     # Logging
     logging.basicConfig(level=logging.INFO,
