@@ -26,7 +26,7 @@ def main():
 
     # The project's experiments data
     files = glob.glob(pathname=os.path.join(root, 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
-    elements = [file.split('helminthiases', 1)[1] for file in files]
+    elements = [file.split('infections', 1)[1] for file in files]
     elements = [element.replace('\\', '/') for element in elements]
     elements = [HUB + element for element in elements]
 
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     root = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
-    HUB = 'https://raw.githubusercontent.com/helminthiases'
+    HUB = 'https://raw.githubusercontent.com/helminthiases/infections/master'
 
     # Logging
     logging.basicConfig(level=logging.INFO,
