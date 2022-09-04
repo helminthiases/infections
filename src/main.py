@@ -1,11 +1,10 @@
 """
 The main module for running other classes
 """
+import glob
 import logging
 import os
 import sys
-import glob
-import pathlib
 
 import pandas as pd
 
