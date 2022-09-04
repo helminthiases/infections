@@ -9,14 +9,14 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.8]
+        version: [3.8]
 
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.version }}
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ matrix.version }}
 
       - name: Install dependencies
         run: |
@@ -77,8 +77,13 @@ jobs:
       - name: Test with pytest
         run: |
           pip install pytest
+          pytest -o python_files=test_*.py
 
       - name: Coverage with pytest-cov
         run: |
           pip install coverage
           pip install pytest-cov
+          printf "\n"
+          pytest --cov-report term-missing  --cov src/data/ tests/data/
+          printf "\n"
+          pytest --cov-report term-missing  --cov src/functions/ tests/functions/

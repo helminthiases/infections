@@ -6,7 +6,7 @@ Development Notes
 
 ### Development Environment
 
-Using an Anaconda environment named ``infections``
+Within a virtual environment
 
 ````shell
   conda create --prefix ~/infections
@@ -29,7 +29,8 @@ Using an Anaconda environment named ``infections``
 
 <br>
 
-To generate the [``pylint``](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html) inspector run
+To generate the dotfile that [``pylint``](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html)  - the 
+static code analyser - will use for analysis, run
 
 ````shell
 pylint --generate-rcfile > .pylintrc
@@ -53,17 +54,34 @@ Tool options, and a few command examples:
 python -m pytest ...
 ```
 
+<br>
+
 &nbsp; &nbsp; **PyTest & Coverage**
 
 ```shell
-python -m pytest --cov src/data tests/data
+python -m pytest --cov-report term-missing --cov src/data tests/data
 ```
+
+<br>
 
 &nbsp; &nbsp; **Pylint**
 
 ```shell
 python -m pylint --rcfile .pylintrc src/data
 ```
+
+Note that
+
+```
+logger.info('\n %s', data.info())
+```
+
+is preferred to
+
+```
+logger.info('\n{}'.format(data.info()))
+```
+<br>
 
 &nbsp; &nbsp; **flake8**
 
@@ -74,20 +92,6 @@ python -m flake8 --count --select=E9,F63,F7,F82 --show-source
 # complexity          
 python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 
           --statistics src/data
-```
-
-<br>
-
-**In relation to Pylint**, note that
-
-```
-logger.info('\n %s', data.info())
-```
-
-is preferred to
-
-```
-logger.info('\n{}'.format(data.info()))
 ```
 
 <br>
@@ -102,6 +106,10 @@ logger.info('\n{}'.format(data.info()))
   * https://pylint.readthedocs.io/en/latest/technical_reference/features.html
   * [API Reference](https://docs.pytest.org/en/7.1.x/reference/reference.html)
   * [flags](https://docs.pytest.org/en/7.1.x/reference/reference.html#command-line-flags)
+* [pytest](https://docs.pytest.org/en/7.1.x/contents.html)  
+* pytest & coverage
+  * [about](https://pytest-cov.readthedocs.io/en/latest/)
+  * [pytest --cov-report term-missing --cov src/directory tests/directory](https://pytest-cov.readthedocs.io/en/latest/reporting.html)
 * Formatting
   * https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting
   
