@@ -4,6 +4,10 @@ The main module for running other classes
 import logging
 import os
 import sys
+import glob
+import pathlib
+
+import pandas as pd
 
 
 def main():
@@ -21,6 +25,16 @@ def main():
     messages = src.data.experiments.Experiments().exc()
     logger.info(messages)
 
+    # The project's experiments data
+    files = glob.glob(pathname=os.path.join(root, 'warehouse', 'data', 'ESPEN', 'experiments', 'reduced', '*.csv'))
+    elements = [file.split('helminthiases', 1)[1] for file in files]
+    elements = [element.replace('\\', '/') for element in elements]
+    elements = [hub + element for element in elements]
+
+    data = pd.DataFrame(data={'path': elements})
+    data.to_csv(path_or_buf=os.path.join(root, 'warehouse', 'data', 'ESPEN', 'experiments', 'data.csv'),
+                index=False, header=True, encoding='utf-8')
+
 
 if __name__ == '__main__':
 
@@ -28,6 +42,7 @@ if __name__ == '__main__':
     root = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
+    hub = 'https://raw.githubusercontent.com/helminthiases'
 
     # Logging
     logging.basicConfig(level=logging.INFO,
