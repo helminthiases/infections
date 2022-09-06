@@ -85,7 +85,7 @@ class Experiments:
         frame = src.experiments.drop.Drop().exc(data=frame)
         print(f'{name}: {frame.shape[0]}')
 
-        if frame.shape[0] < 2:
+        if frame.shape[0] <= 5:
             instances = pd.DataFrame()
         else:
             instances = src.experiments.deduplicate.Deduplicate(

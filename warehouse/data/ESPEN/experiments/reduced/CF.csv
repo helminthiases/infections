@@ -1,3 +1,0 @@
-"iso3","iso2","admin1_id","admin2_id","iu_id","site_id","longitude","latitude","georeliability","location_type","survey_type","year","age_start","age_end","hk_examined","hk_positive","asc_examined","asc_positive","tt_examined","tt_positive","quality","sn","hk_prevalence","asc_prevalence","tt_prevalence","sth_prevalence","shortest","id","src","dst","identifier"
-"CAF","CF",9660,0,9660,"",18.556999,4.366,4,"","",1983.0,18,99,3352,420,3352,100,3352,95,3,30041,0.12529832935560858,0.029832935560859187,0.028341288782816228,0.1655130725984492,0.0,0,0,1,1
-"CAF","CF",9660,0,9660,"",18.556999,4.366,4,"","",1982.0,1,99,350,132,350,46,0,0,3,30042,0.37714285714285717,0.13142857142857142,"","",0.0,1,1,0,1
