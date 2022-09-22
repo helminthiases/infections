@@ -19,7 +19,7 @@ An API querying program delivers the raw ESPEN soil transmitted helminths infect
   
 <br>
 
-Each JSON data set undergoes the series steps that the table below outlines.  The statement/command
+Each JSON data file undergoes the series steps that the table below outlines.  The statement/command
 
 ````shell
   python src/main.py
