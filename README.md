@@ -14,7 +14,7 @@ _Master_<br>
 
 An API querying program delivers the raw ESPEN soil transmitted helminths infections data 
 to [data/ESPEN/experiments](./data/ESPEN/experiments); a JSON data file per country.  The 
-countries ``DJ``, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
+countries <span title="Djibouti">``DJ``</span>, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
   
 <br>
 
