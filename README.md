@@ -12,13 +12,22 @@ _Master_<br>
 
 ### Notes
 
-An API querying program delivers the raw ESPEN soil transmitted helminths infections data 
-to [data/ESPEN/experiments](./data/ESPEN/experiments); a JSON data file per country.  The 
-countries <span title="Djibouti">``DJ``</span>, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
+An API querying program delivers the raw ESPEN soil transmitted helminths infections data to 
+[data/ESPEN/experiments](./data/ESPEN/experiments); **a JSON data file per country**.  The countries <span title="Djibouti">``DJ``</span>, 
+<span title="Algeria">``DZ``</span>, <span title="Equitorial Guinea">``GQ``</span>, <span title="Comoros">``KM``</span>, and
+<span title="Namibia">``NA``</span> do not have any ESPEN STH experiments data.
   
 <br>
 
-Each JSON data set undergoes the series of steps:
+Each JSON data set undergoes the series steps that the table below outlines.  The statement/command
+
+````shell
+  python src/main.py
+````
+
+runs all the steps.
+
+<br>
 
 <table style="width: 65%; font-size: 65%; text-align: left; margin-left: 65px;">
     <colgroup>
