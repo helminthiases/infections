@@ -51,17 +51,13 @@ Each JSON data set undergoes the series of steps:
             illustrates the approach.  A field named <code>identifier</code> hosts the new identification codes.  Subsequently, deduplication.</td>
         <td><a href="./warehouse/data/ESPEN/experiments/reduced">reduced</a></td>
     </tr>
-    <tr>
-        <td><ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul></td>
-        <td>Is an STH prevalence value valid if, and only if, there exists an ascariasis, trichuriasis, and hookworm disease prevalence value?</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul></td>
-        <td>Should the number of examinations per disease be equivalent?</td>
-        <td></td>
-    </tr>
 </table>
+
+{comment}: #(<ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul>
+             Is an STH prevalence value valid if, and only if, there exists an *ascariasis*, *trichuriasis*, and *hookworm disease* prevalence value?)
+
+{comment}: #(<ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul>
+             Should the number of examinations per disease be equivalent?)
 
 <br>
 <br>
