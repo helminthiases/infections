@@ -53,9 +53,15 @@ Each JSON data set undergoes the series of steps:
     </tr>
 </table>
 
-[comment]: #(<ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul>  Is an STH prevalence value valid if, and only if, there exists an *ascariasis*, *trichuriasis*, and *hookworm disease* prevalence value?)
+<!--- 
+  <ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul>  
+  Is an STH prevalence value valid if, and only if, there exists an *ascariasis*, *trichuriasis*, and *hookworm disease* prevalence value?) 
+--->
 
-[comment]: #(<ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul>  Should the number of examinations per disease be equivalent?)
+<!---
+  <ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul>  
+  Should the number of examinations per disease be equivalent?)
+--->
 
 <br>
 <br>
