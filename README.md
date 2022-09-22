@@ -12,13 +12,22 @@ _Master_<br>
 
 ### Notes
 
-An API querying program delivers the raw ESPEN soil transmitted helminths infections data 
-to [data/ESPEN/experiments](./data/ESPEN/experiments); a JSON data file per country.  The 
-countries ``DJ``, ``DZ``, ``GQ``, ``KM``, ``NA``, and ``YE`` do not have any ESPEN STH experiments data.
+An API querying program delivers the raw ESPEN soil transmitted helminths infections data to 
+[data/ESPEN/experiments](./data/ESPEN/experiments); **a JSON data file per country**.  The countries <span title="Djibouti">``DJ``</span>, 
+<span title="Algeria">``DZ``</span>, <span title="Equitorial Guinea">``GQ``</span>, <span title="Comoros">``KM``</span>, and
+<span title="Namibia">``NA``</span> do not have any ESPEN STH experiments data.
   
 <br>
 
-Each JSON data set undergoes the series of steps:
+Each JSON data file undergoes the series steps that the table below outlines.  The statement/command
+
+````shell
+  python src/main.py
+````
+
+runs all the steps.
+
+<br>
 
 <table style="width: 65%; font-size: 65%; text-align: left; margin-left: 65px;">
     <colgroup>
@@ -51,17 +60,17 @@ Each JSON data set undergoes the series of steps:
             illustrates the approach.  A field named <code>identifier</code> hosts the new identification codes.  Subsequently, deduplication.</td>
         <td><a href="./warehouse/data/ESPEN/experiments/reduced">reduced</a></td>
     </tr>
-    <tr>
-        <td><ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul></td>
-        <td>Is an STH prevalence value valid if, and only if, there exists an ascariasis, trichuriasis, and hookworm disease prevalence value?</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul></td>
-        <td>Should the number of examinations per disease be equivalent?</td>
-        <td></td>
-    </tr>
 </table>
+
+<!--- 
+  <ul><li><a href="./src/experiments/plausible.py">inspect metric plausibility</a></li></ul>  
+  Is an STH prevalence value valid if, and only if, there exists an *ascariasis*, *trichuriasis*, and *hookworm disease* prevalence value?) 
+--->
+
+<!---
+  <ul><li><a href="./src/experiments/equivalent.py">inspect examination numbers</a></li></ul>  
+  Should the number of examinations per disease be equivalent?)
+--->
 
 <br>
 <br>
